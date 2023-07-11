@@ -12,7 +12,6 @@ class Wedding(models.Model):
 
 
 class Comment(models.Model):
-    comment_id = models.AutoField(primary_key=True)  # Unique identifier for the comment
     wedding = models.ForeignKey(Wedding, on_delete=models.CASCADE)
     commenter_name = models.CharField(max_length=255)
     commenter_avatar = models.URLField()
@@ -20,5 +19,13 @@ class Comment(models.Model):
     comment_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"Comment {self.comment_id} by {self.commenter_name} on {self.wedding.bride_name} & {self.wedding.groom_name}'s Wedding"
+        return f"Comment by {self.commenter_name} on {self.wedding.bride_name} & {self.wedding.groom_name}'s Wedding"
+
+    class Photo(models.Model):
+        wedding = models.ForeignKey(Wedding, on_delete=models.CASCADE)
+        photo_url = models.URLField()
+        photo_description = models.CharField(max_length=255)
+
+        def __str__(self):
+            return f"Photofor {self.wedding.bride_name} & {self.wedding.groom_name}'s Wedding"
 
