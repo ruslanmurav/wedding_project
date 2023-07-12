@@ -16,7 +16,7 @@ class Comment(models.Model):
 
     wedding = models.ForeignKey(to=Wedding, on_delete=models.CASCADE)
     commenter_name = models.CharField(max_length=255)
-    commenter_avatar = models.ImageField(upload_to='product_images')
+    commenter_avatar = models.ImageField(upload_to='product_images', blank=True)
     comment_text = models.TextField()
     comment_date = models.DateTimeField(auto_now_add=True)
 
