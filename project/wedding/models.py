@@ -13,10 +13,9 @@ class Wedding(models.Model):
 
 
 class Comment(models.Model):
-
     wedding = models.ForeignKey(to=Wedding, on_delete=models.CASCADE)
     commenter_name = models.CharField(max_length=255)
-    commenter_avatar = models.ImageField(upload_to='product_images', blank=True)
+    commenter_avatar = models.ImageField(upload_to='commenter_avatar', blank=True)
     comment_text = models.TextField()
     comment_date = models.DateTimeField(auto_now_add=True)
 
@@ -26,7 +25,7 @@ class Comment(models.Model):
 
 class Photo(models.Model):
     wedding = models.ForeignKey(to=Wedding, on_delete=models.CASCADE)
-    photo_url = models.ImageField(upload_to='product_images')
+    photo_url = models.ImageField(upload_to='wedding_photo')
     photo_description = models.CharField(max_length=255)
 
     def __str__(self):
