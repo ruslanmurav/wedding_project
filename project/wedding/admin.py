@@ -1,3 +1,7 @@
 from django.contrib import admin
+from wedding.models import Wedding, Comment, Photo
 
-# Register your models here.
+
+admin.site.register(Wedding)
+admin.site.register(Comment)
+admin.site.register(Photo)
