@@ -9,3 +9,4 @@ class MainView(TemplateView):
         context = super(MainView, self).get_context_data()
         context['title'] = 'Главная страница'
         return context
+
