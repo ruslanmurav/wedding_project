@@ -1,0 +1,106 @@
+html, body{
+	padding: 0;
+	margin: 0;
+	min-width: 1000px;
+    font-family: aaa;
+    background-color: #f1f0ec;
+}
+
+.fixed-block {
+    position: relative;
+	width: 960px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#header {
+
+}
+
+#logo {
+    max-width: 150px;
+    position: relative;
+    padding-top: 20px;
+    padding-left: 50px;
+}
+
+#first-page-photo-holder .fixed-block {
+    height: 650px;
+}
+
+#first-user-img {
+    position: relative;
+    float: left;
+    padding-left: 6px;
+    padding-top: 6px;
+    max-width: 450px;
+}
+
+#first-user-img img{
+    position: relative;
+    max-width: 450px;
+    box-shadow: 0 0 7px rgba(0,0,0,0.5);
+}
+
+#second-user-img {
+    position: relative;
+    top: 250px;
+    float: left;
+    padding-left: 100px;
+    max-width: 380px;
+}
+
+#second-user-img img{
+    position: relative;
+    max-width: 380px;
+    box-shadow: 0 0 7px rgba(0,0,0,0.5);
+}
+
+#marige-photo-box {
+    padding-top: 140px;
+}
+
+#marige-photo-box h3 {
+    position: relative;
+    bottom: 10px;
+    text-align: center;
+}
+
+.marige-photo-block {
+    position: relative;
+    max-width: 210px;
+    float: left;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.marige-photo-block img {
+    position: relative;
+    max-width: 210px;
+    box-shadow: 0 0 7px rgba(0,0,0,0.5);
+}
+
+#Why-us {
+
+}
+
+#About-us {
+
+}
+
+#organizer-photo {
+    padding-right: 10px;
+    float: right;
+}
+
+#organizer-photo img {
+    box-shadow: 0 0 7px rgba(0,0,0,0.5);
+}
+
+
+@font-face {
+	font-family: aaa;
+    src: url(fonts/VETRENB.ttf) format("truetype");
+    font-style: normal;
+    font-weight: normal;
+}
