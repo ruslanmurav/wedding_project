@@ -18,6 +18,7 @@ class Comment(models.Model):
     commenter_avatar = models.ImageField(upload_to='commenter_avatar', blank=True)
     comment_text = models.TextField()
     comment_date = models.DateTimeField(auto_now_add=True)
+    is_accepted = models.BooleanField(default=False)
 
     def __str__(self):
         return f"Comment by {self.commenter_name} on {self.wedding.bride_name} & {self.wedding.groom_name}'s Wedding"
