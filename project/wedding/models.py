@@ -31,3 +31,9 @@ class Photo(models.Model):
 
     def __str__(self):
         return f"Photo for {self.wedding.bride_name} & {self.wedding.groom_name}'s Wedding"
+
+
+class Moderate(Comment, models.Model):
+    class Meta:
+        proxy = True
+
