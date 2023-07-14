@@ -17,7 +17,7 @@ class Comment(models.Model):
     commenter_name = models.CharField(max_length=255)
     commenter_avatar = models.ImageField(upload_to='commenter_avatar', blank=True)
     comment_text = models.TextField()
-    comment_date = models.DateTimeField(auto_now_add=True)
+    comment_date = models.DateTimeField()
     is_accepted = models.BooleanField(default=False)
 
     def __str__(self):
