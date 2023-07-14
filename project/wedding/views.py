@@ -17,17 +17,9 @@ class MainView(TemplateView):
         first_photos = {}
         for wedding in latest_weddings:
             for photo in photos:
-                if photo.wedding_id == wedding.id:
-                    if wedding not in first_photos:
-                        first_photos[wedding] = photo.photo_url
-        print(first_photos)
-        list = []
-        for ph in first_photos:
-            list.append(first_photos[ph])
+                if photo.wedding_id == wedding.id and wedding not in first_photos:
+                    first_photos[wedding] = photo.photo_url
         context['first_photos'] = first_photos
-
-
-
 
         return context
 
