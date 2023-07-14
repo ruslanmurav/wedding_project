@@ -2,7 +2,8 @@ html, body{
 	padding: 0;
 	margin: 0;
 	min-width: 1000px;
-    font-family: aaa;
+    font-family: 'Vetren', arial;
+    font-size: 20px;
     background-color: #f1f0ec;
 }
 
@@ -56,17 +57,17 @@ html, body{
     box-shadow: 0 0 7px rgba(0,0,0,0.5);
 }
 
-#marige-photo-box {
+#marrige-photo-box {
     padding-top: 140px;
 }
 
-#marige-photo-box h3 {
+#marrige-photo-box h3 {
     position: relative;
     bottom: 10px;
     text-align: center;
 }
 
-.marige-photo-block {
+.marrige-photo-block {
     position: relative;
     max-width: 210px;
     float: left;
@@ -74,22 +75,34 @@ html, body{
     padding-top: 10px;
 }
 
-.marige-photo-block img {
+.marrige-photo-block img {
     position: relative;
     max-width: 210px;
     box-shadow: 0 0 7px rgba(0,0,0,0.5);
 }
 
-#Why-us {
+#third-page {
+    padding-top: 200px;
+}
 
+#third-page-text-box {
+    float: left;
+    width: 570px;
+}
+
+#Why-us {
+    text-align: center;
 }
 
 #About-us {
-
+    padding-top: 50px;
+    text-align: center;
+    font-size: 20px;
 }
 
 #organizer-photo {
     padding-right: 10px;
+    padding-top: 20px;
     float: right;
 }
 
@@ -98,9 +111,76 @@ html, body{
 }
 
 
-@font-face {
-	font-family: aaa;
-    src: url(fonts/VETRENB.ttf) format("truetype");
-    font-style: normal;
-    font-weight: normal;
+#fourth-page {
+    padding-top: 150px;
 }
+
+#fourth-page-header {
+    text-align: center;
+}
+
+#comment-holder-box {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 50px;
+}
+
+.comment-box {
+    width: 230px;
+    padding-left: 45px;
+    padding-right: 45px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+
+.comment-img {
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+    padding-bottom: 100%;
+    height: 0;
+    position: relative;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.comment-img img {
+    width:90%;
+    height:90%;
+    position: absolute;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 7px rgba(0,0,0,0.5);
+}
+
+.comment-text-box {
+    padding: 10px;
+    text-align: center;
+    /* background-color: gray; */
+}
+
+#fifth-page {
+    padding-top: 100px;
+}
+
+#user-comment-header {
+    text-align: center;
+}
+
+form {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#user-name {
+    margin: 0 auto;
+}
+
+#marrige-date {
+    margin: 0 auto;
+}
+
+#user-comment {
+    margin: 0 auto;
+}
+
