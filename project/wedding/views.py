@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from wedding.models import Wedding, Comment, Photo
+from wedding.forms import CommentForm
 
 
 class MainView(TemplateView):
@@ -20,7 +21,7 @@ class MainView(TemplateView):
                 if photo.wedding_id == wedding.id and wedding not in first_photos:
                     first_photos[wedding] = photo.photo_url
         context['first_photos'] = first_photos
-
+        context['form'] = CommentForm()
         return context
 
 
