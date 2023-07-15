@@ -9,7 +9,7 @@ class Wedding(models.Model):
     wedding_description = models.TextField()
 
     def __str__(self):
-        return f"{self.bride_name} & {self.groom_name}'s Wedding"
+        return f"{self.bride_name.title()} + {self.groom_name.title()}"
 
 
 class Comment(models.Model):
