@@ -121,36 +121,37 @@
             </div>
 
             <form>
-                <input type="text" name="user-name" id="user-name" placeholder="Имя" size="53">
+                <input type="text" name="user-name" id="user-name" placeholder="Имя" size="53" required="required">
                 <br>
-                <label for="marrige-date">Дата свадьбы</label>
-                <input type="date" name="marrige-date" id="marrige-date" size="53" >
+                <input type="date" name="marrige-date" id="marrige-date" required="required" placeholder="Дата свадьбы:&nbsp;" onchange="this.className=(this.value!=''?'has-value':'')">
                 <br>
-                <textarea id="user-comment" maxlength="1000" cols="52" rows="10" placeholder="Ваш комментарий"></textarea>
+                <textarea id="user-comment" maxlength="1000" cols="52" rows="10" placeholder="Ваш комментарий" required="required"></textarea>
+                <br>
+                <input type="submit" id="user-comment-form-submit">
             </form>
         </div>
     </div>
     <div id="footer">
         <img src="static/vendor/images/logo-1.png" class="logo">
-        <div id="media-box-holder">
-            <div id="media-box">
-                <div class="media">
-                    <a href="#">
-                        <img src="static/vendor/images/footer-instagram-logo.png">
-                    </a>
-                </div>
-                <div class="media">
-                    <a href="#">
-                        <img src="static/vendor/images/footer-instagram-logo.png">
-                    </a>
-                </div>
-                <div class="media">
-                    <a href="#">
-                        <img src="static/vendor/images/footer-instagram-logo.png">
-                    </a>
+          <div id="media-box-holder">
+                <div id="media-box">
+                    <div class="media">
+                        <a href="https://www.instagram.com/katarina_losik/?igshid=MzRlODBiNWFlZA%3D%3D" target=»_blank»>
+                            <img src="static/vendor/images/footer-instagram-logo.png">
+                        </a>
+                    </div>
+                    <div class="media">
+                        <a href="https://www.instagram.com/katarina_losik/?igshid=MzRlODBiNWFlZA%3D%3D" target="_blank">
+                            <img src="static/vendor/images/footer-instagram-logo.png">
+                        </a>
+                    </div>
+                    <div class="media">
+                        <a href="https://www.instagram.com/katarina_losik/?igshid=MzRlODBiNWFlZA%3D%3D" target=»_blank»>
+                            <img src="static/vendor/images/footer-instagram-logo.png">
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
             <div class="big-box-1">
                 <div class="big-box-2">
                     <div id="footer-end-text">
