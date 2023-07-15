@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from wedding.models import Wedding, Comment
+from wedding.models import Wedding, Comment, Photo
 
 
 class MainView(TemplateView):
@@ -13,6 +13,14 @@ class MainView(TemplateView):
         context['weddings'] = latest_weddings
         comments = Comment.objects.all()
         context['comments'] = comments
+        photos = Photo.objects.all()
+        first_photos = {}
+        for wedding in latest_weddings:
+            for photo in photos:
+                if photo.wedding_id == wedding.id and wedding not in first_photos:
+                    first_photos[wedding] = photo.photo_url
+        context['first_photos'] = first_photos
+
         return context
 
 
