@@ -15,10 +15,11 @@ html, body{
 }
 
 #header {
-
+    box-shadow: 0 0 7px rgba(0,0,0,0.5);
+    margin-bottom: 25px;
 }
 
-#logo {
+.logo {
     max-width: 150px;
     position: relative;
     padding-top: 20px;
@@ -78,6 +79,7 @@ html, body{
 .marrige-photo-block img {
     position: relative;
     max-width: 210px;
+    max-height: 262.5px;
     box-shadow: 0 0 7px rgba(0,0,0,0.5);
 }
 
@@ -174,13 +176,113 @@ form {
 
 #user-name {
     margin: 0 auto;
+    margin-bottom: 10px;
+    padding-top: 5px;
 }
 
 #marrige-date {
     margin: 0 auto;
+    margin-bottom: 10px;
 }
 
 #user-comment {
     margin: 0 auto;
+    resize: none;
 }
 
+::placeholder {
+    font-family: 'Vetren', arial;
+    font-size: large;
+    padding: 0px;
+}
+
+textarea {
+    font-family: 'Vetren', arial;
+    font-size: large;
+    padding: 5px;
+}
+
+input {
+    font-family: 'Vetren', arial;
+    font-size: large;
+    padding: 5px;
+}
+
+#footer {
+    margin-top: 100px;
+    box-shadow: 0 0 7px rgba(0,0,0,0.5);
+    display: flex;
+    align-items: end;
+}
+
+#footer .logo {
+    margin-bottom: 20px;
+    margin-left: 1px;
+}
+
+#media-box-holder {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100px;
+    padding-bottom: 20px;
+}
+
+#media-box {
+    margin: 0 auto;
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    height: 100px;
+    padding-bottom: 20px;
+    align-items:end;
+}
+
+.media {
+    width: 40px;
+    height: 40px;
+    margin-left: 10px;
+    margin-bottom: 0;
+    z-index: 20;
+}
+
+.media img {
+    width: 40px;
+}
+
+.big-box-1 {
+    position: absolute;
+    width: 100%;
+    padding-bottom: 70px;
+}
+
+.big-box-2 {
+    width: 800px;
+    margin: 0 auto;
+    display: flex;
+    text-align: center;
+}
+
+
+#footer-end-text {
+    margin: 0 auto;
+    max-width: 360px;
+    z-index: 20;
+}
+
+#footer-email {
+    float: right;
+    margin-right: 50px;
+    margin-bottom: 50px;
+}
+
+#footer-email a {
+    color: black;
+}
+
+#footer-tel-number {
+    float: right;
+    margin-right: 50px;
+    margin-bottom: 20px;
+}
