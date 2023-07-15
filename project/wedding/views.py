@@ -12,8 +12,6 @@ class MainView(TemplateView):
         context['title'] = 'Главная страница'
         latest_weddings = Wedding.objects.none() if Wedding.objects.count() == 0 else Wedding.objects.order_by("-id")[:4]
         context['weddings'] = latest_weddings
-        comments = Comment.objects.all()
-        context['comments'] = comments
         photos = Photo.objects.all()
         first_photos = {}
         for wedding in latest_weddings:
@@ -21,6 +19,8 @@ class MainView(TemplateView):
                 if photo.wedding_id == wedding.id and wedding not in first_photos:
                     first_photos[wedding] = photo.photo_url
         context['first_photos'] = first_photos
+        comments = Comment.objects.filter(is_accepted=1)
+        context['comments'] = comments
         context['form'] = CommentForm()
         return context
 
