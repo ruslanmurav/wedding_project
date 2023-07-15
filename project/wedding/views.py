@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from wedding.models import Wedding, Comment, Photo
+from wedding.forms import CommentForm
 
 
 class MainView(TemplateView):
@@ -20,6 +21,7 @@ class MainView(TemplateView):
         context['first_photos'] = first_photos
         comments = Comment.objects.filter(is_accepted=1)
         context['comments'] = comments
+        context['form'] = CommentForm()
         return context
 
 
