@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from wedding.models import Wedding, Comment, Photo
 from wedding.forms import CommentForm
@@ -8,7 +8,10 @@ class MainView(TemplateView):
     template_name = 'wedding/main.html'
 
     def post(self, request, *args, **kwargs):
-        Comment.objects.create()
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            form.save()
+        return redirect('main')
 
     def get_context_data(self, **kwargs):
         context = super(MainView, self).get_context_data()
