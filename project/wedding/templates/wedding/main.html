@@ -18,8 +18,8 @@
         <div class="fixed-block">
             {% for wedding, photo in first_photos.items %}
                 <div class="marrige-photo-block">
-                    <img src="{{ photo }}">
-                    <h3>{{wedding}}</h3>
+                    <img src="{{ photo.url }}">
+                    <h3>{{ wedding }}</h3>
                 </div>
             {% endfor %}
         </div>
