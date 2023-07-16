@@ -1,10 +1,66 @@
+{% load static %}
+
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <link href="https://allfont.ru/allfont.css?fonts=vetren" rel="stylesheet" type="text/css" />
+    <title>{{ title }}</title>
+    {% block styles %}
+    {% endblock %}
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/styles/MainStyles.css'%}">
 </head>
 <body>
+    <div id="header">
+        <img src="{% static 'vendor/images/logo-1.png' %}" class="logo">
+    </div>
 
+{% block content %}
+
+{% endblock %}
+    <div id="footer">
+        <img src="{% static 'vendor/images/logo-1.png' %}" class="logo">
+        <div id="media-box-holder">
+            <div id="media-box">
+                <div class="media">
+                    <a href="#">
+                        <img src="{% static 'vendor/images/footer-instagram-logo.png' %}">
+                    </a>
+                </div>
+                <div class="media">
+                    <a href="#">
+                        <img src="{% static 'vendor/images/footer-instagram-logo.png' %}">
+                    </a>
+                </div>
+                <div class="media">
+                    <a href="#">
+                        <img src="{% static 'vendor/images/footer-instagram-logo.png' %}">
+                    </a>
+                </div>
+            </div>
+        </div>
+            <div class="big-box-1">
+                <div class="big-box-2">
+                    <div id="footer-end-text">
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, aspernatur ut dolorem architecto natus tempore aliquam quibusdam reiciendis atque, repudiandae, laborum repellat asperiores at molestias. Animi dignissimos minima ullam voluptates.
+                    </div>
+                </div>
+            </div>
+            <div class="big-box-1">
+                <div class="big-block-2">
+                    <div id="footer-email">
+                        paradis1984@mail.ru
+                    </div>
+                </div>
+            </div>
+            <div class="big-box-1">
+                <div class="big-block-2">
+                    <div id="footer-tel-number">
+                        +375-29-6339488
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
