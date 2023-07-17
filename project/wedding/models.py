@@ -8,6 +8,10 @@ class Wedding(models.Model):
     wedding_location = models.CharField(max_length=255)
     wedding_description = models.TextField()
 
+    class Meta:
+        verbose_name = 'свадьбу'
+        verbose_name_plural = 'Свадьбы'
+
     def __str__(self):
         return f"{self.bride_name.title()} + {self.groom_name.title()}"
 
