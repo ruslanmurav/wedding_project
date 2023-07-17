@@ -23,6 +23,10 @@ class Comment(models.Model):
     comment_date = models.DateTimeField()
     is_accepted = models.BooleanField(default=False)
 
+    class Meta:
+        verbose_name = 'комментарий'
+        verbose_name_plural = 'Комментарии'
+
     def __str__(self):
         return f"Comment by {self.commenter_name}"
 
