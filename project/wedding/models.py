@@ -9,19 +9,18 @@ class Wedding(models.Model):
     wedding_description = models.TextField()
 
     def __str__(self):
-        return f"{self.bride_name} & {self.groom_name}'s Wedding"
+        return f"{self.bride_name.title()} + {self.groom_name.title()}"
 
 
 class Comment(models.Model):
-    wedding = models.ForeignKey(to=Wedding, on_delete=models.CASCADE)
     commenter_name = models.CharField(max_length=255)
     commenter_avatar = models.ImageField(upload_to='commenter_avatar', blank=True)
     comment_text = models.TextField()
-    comment_date = models.DateTimeField(auto_now_add=True)
+    comment_date = models.DateTimeField()
     is_accepted = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"Comment by {self.commenter_name} on {self.wedding.bride_name} & {self.wedding.groom_name}'s Wedding"
+        return f"Comment by {self.commenter_name}"
 
 
 class Photo(models.Model):
@@ -31,3 +30,9 @@ class Photo(models.Model):
 
     def __str__(self):
         return f"Photo for {self.wedding.bride_name} & {self.wedding.groom_name}'s Wedding"
+
+
+class Moderate(Comment, models.Model):
+    class Meta:
+        proxy = True
+

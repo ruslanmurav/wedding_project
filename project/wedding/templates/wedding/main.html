@@ -1,42 +1,27 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <link href="https://allfont.ru/allfont.css?fonts=vetren" rel="stylesheet" type="text/css" />
-	<title>Екатерина Лосик</title>
-	<link rel="stylesheet" type="text/css" href="static/vendor/styles/MainStyles.css">
-</head>
-<body>
-    <div id="header">
-        <img src="static/vendor/images/logo-1.png" class="logo">
-    </div>
+{% extends 'wedding/base.html' %}
+{% load static %}
+
+{% block content %}
+
+
     <div id="first-page-photo-holder">
         <div class="fixed-block">
             <div id="first-user-img">
-                <img src="static/vendor/images/marrige1.png">
+                <img src="{% static 'vendor/images/marrige1.png' %}">
             </div>
             <div id="second-user-img">
-                <img src="static/vendor/images/marrige2.png">
+                <img src="{% static 'vendor/images/marrige2.png' %}">
             </div>
         </div>
     </div>
     <div id="marrige-photo-box">
         <div class="fixed-block">
-            <div class="marrige-photo-block">
-                <img src="static/vendor/images/marrige-photo-3.jpg">
-                <h3>Lorem + ipsum</h3>
-            </div>
-            <div class="marrige-photo-block">
-                <img src="static/vendor/images/marrige-photo-3.jpg">
-                <h3>Lorem + ipsum</h3>
-            </div>
-            <div class="marrige-photo-block">
-                <img src="static/vendor/images/marrige-photo-3.jpg">
-                <h3>Lorem + ipsum</h3>
-            </div>
-            <div class="marrige-photo-block">
-                <img src="static/vendor/images/marrige-photo-3.jpg">
-                <h3>Lorem + ipsum</h3>
-            </div>
+            {% for wedding, photo in first_photos.items %}
+                <div class="marrige-photo-block">
+                    <img src="{{ photo.url }}">
+                    <h3>{{ wedding }}</h3>
+                </div>
+            {% endfor %}
         </div>
     </div>
 
@@ -60,7 +45,7 @@
                 </div>
         </div>
             <div id="organizer-photo">
-                <img src="static/vendor/images/Katya.png">
+                <img src="{% static 'vendor/images/Katya.png' %}">
             </div>
         </div>
     </div>
@@ -70,46 +55,16 @@
                 <h1>Отзывы клиентов</h1>
             </div>
             <div id="comment-holder-box">
-                <div class="comment-box">
-                    <div class="comment-img">
-                        <img src="static/vendor/images/comment.png">
+                {% for comment in comments %}
+                    <div class="comment-box">
+                        <div class="comment-img">
+                            <img src="{% static 'vendor/images/comment.png' %}">
+                        </div>
+                        <div class="comment-text-box">
+                            {{ comment.comment_text }}
+                        </div>
                     </div>
-                    <div class="comment-text-box">
-                        отзывы наших клиентов о том, как они говорят что им понравилось работать с нами и то что у них креветки вкусные
-                    </div>
-                </div>
-                <div class="comment-box">
-                    <div class="comment-img">
-                        <img src="static/vendor/images/comment.png">
-                    </div>
-                    <div class="comment-text-box">
-                        отзывы наших клиентов о том, как они говорят что им понравилось работать с нами и то что у них креветки вкусные
-                    </div>
-                </div>
-                <div class="comment-box">
-                    <div class="comment-img">
-                        <img src="static/vendor/images/comment.png">
-                    </div>
-                    <div class="comment-text-box">
-                        отзывы наших клиентов о том, как они говорят что им понравилось работать с нами и то что у них креветки вкусные
-                    </div>
-                </div>
-                <div class="comment-box">
-                    <div class="comment-img">
-                        <img src="static/vendor/images/comment.png">
-                    </div>
-                    <div class="comment-text-box">
-                        отзывы наших клиентов о том, как они говорят что им понравилось работать с нами и то что у них креветки вкусные
-                    </div>
-                </div>
-                <div class="comment-box">
-                    <div class="comment-img">
-                        <img src="static/vendor/images/comment.png">
-                    </div>
-                    <div class="comment-text-box">
-                        отзывы наших клиентов о том, как они говорят что им понравилось работать с нами и то что у них креветки вкусные
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -119,61 +74,19 @@
             <div id="user-comment-header">
                 <h1>Комментарии</h1>
             </div>
-
-            <form>
-                <input type="text" name="user-name" id="user-name" placeholder="Имя" size="53" required="required">
-                <br>
-                <input type="date" name="marrige-date" id="marrige-date" required="required" placeholder="Дата свадьбы:&nbsp;" onchange="this.className=(this.value!=''?'has-value':'')">
-                <br>
-                <textarea id="user-comment" maxlength="1000" cols="52" rows="10" placeholder="Ваш комментарий" required="required"></textarea>
-                <br>
+            <form action="{% url 'main' %}" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+{#                <input type="text" name="user-name" id="user-name" placeholder="Имя" size="53">#}
+{#                <br>#}
+{#                <label for="marrige-date">Дата свадьбы</label>#}
+{#                <input type="date" name="marrige-date" id="marrige-date" size="53" >#}
+{#                <br>#}
+{#                <textarea id="user-comment" maxlength="1000" cols="52" rows="10" placeholder="Ваш комментарий"></textarea>#}
+{#                <input type="commit">#}
                 <input type="submit" id="user-comment-form-submit">
             </form>
         </div>
     </div>
-    <div id="footer">
-        <img src="static/vendor/images/logo-1.png" class="logo">
-          <div id="media-box-holder">
-                <div id="media-box">
-                    <div class="media">
-                        <a href="https://www.instagram.com/katarina_losik/?igshid=MzRlODBiNWFlZA%3D%3D" target=»_blank»>
-                            <img src="static/vendor/images/footer-instagram-logo.png">
-                        </a>
-                    </div>
-                    <div class="media">
-                        <a href="https://www.instagram.com/katarina_losik/?igshid=MzRlODBiNWFlZA%3D%3D" target="_blank">
-                            <img src="static/vendor/images/footer-instagram-logo.png">
-                        </a>
-                    </div>
-                    <div class="media">
-                        <a href="https://www.instagram.com/katarina_losik/?igshid=MzRlODBiNWFlZA%3D%3D" target=»_blank»>
-                            <img src="static/vendor/images/footer-instagram-logo.png">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="big-box-1">
-                <div class="big-box-2">
-                    <div id="footer-end-text">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi, aspernatur ut dolorem architecto natus tempore aliquam quibusdam reiciendis atque, repudiandae, laborum repellat asperiores at molestias. Animi dignissimos minima ullam voluptates.
-                    </div>
-                </div>
-            </div>
-            <div class="big-box-1">
-                <div class="big-block-2">
-                    <div id="footer-email">
-                        paradis1984@mail.ru
-                    </div>
-                </div>
-            </div>
-            <div class="big-box-1">
-                <div class="big-block-2">
-                    <div id="footer-tel-number">
-                        +375-29-6339488
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+
+{% endblock %}
