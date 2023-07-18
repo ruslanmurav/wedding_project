@@ -13,7 +13,6 @@ class Wedding(models.Model):
 
 
 class Comment(models.Model):
-    wedding = models.ForeignKey(to=Wedding, on_delete=models.CASCADE)
     commenter_name = models.CharField(max_length=255)
     commenter_avatar = models.ImageField(upload_to='commenter_avatar', blank=True)
     comment_text = models.TextField()
@@ -21,7 +20,7 @@ class Comment(models.Model):
     is_accepted = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"Comment by {self.commenter_name} on {self.wedding.bride_name} & {self.wedding.groom_name}'s Wedding"
+        return f"Comment by {self.commenter_name}"
 
 
 class Photo(models.Model):
