@@ -36,6 +36,10 @@ class Photo(models.Model):
     photo_url = models.ImageField(upload_to='wedding_photo')
     photo_description = models.CharField(max_length=255)
 
+    class Meta:
+        verbose_name = 'фото'
+        verbose_name_plural = 'Фото'
+
     def __str__(self):
         return f"Photo for {self.wedding.bride_name} & {self.wedding.groom_name}'s Wedding"
 
@@ -43,4 +47,7 @@ class Photo(models.Model):
 class Moderate(Comment, models.Model):
     class Meta:
         proxy = True
+        verbose_name = 'комментарий'
+        verbose_name_plural = 'Модерация комментариев'
+
 
