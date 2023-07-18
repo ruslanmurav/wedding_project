@@ -31,4 +31,11 @@ class MainView(TemplateView):
         return context
 
 
+def pageNotFound(request, exception):
+    return render(request, 'wedding/404.html')
+
+
+
+
+
 

@@ -58,7 +58,7 @@
                 {% for comment in comments %}
                     <div class="comment-box">
                         <div class="comment-img">
-                            <img src="{% static 'vendor/images/comment.png' %}">
+                            <img src="{{ comment.commenter_avatar }}">
                         </div>
                         <div class="comment-text-box">
                             {{ comment.comment_text }}
