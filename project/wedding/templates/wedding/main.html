@@ -1,5 +1,6 @@
 {% extends 'wedding/base.html' %}
 {% load static %}
+{% load cache %}
 
 {% block content %}
 
@@ -16,12 +17,14 @@
     </div>
     <div id="marrige-photo-box">
         <div class="fixed-block">
+        {% cache 30 first_photos %}
             {% for wedding, photo in first_photos.items %}
                 <div class="marrige-photo-block">
                     <img src="{{ photo.url }}">
                     <h3>{{ wedding }}</h3>
                 </div>
             {% endfor %}
+        {% endcache %}
         </div>
     </div>
 
@@ -55,6 +58,7 @@
                 <h1>Отзывы клиентов</h1>
             </div>
             <div id="comment-holder-box">
+            {% cache 30 comments %}
                 {% for comment in comments %}
                     <div class="comment-box">
                         <div class="comment-img">
@@ -65,6 +69,7 @@
                         </div>
                     </div>
                 {% endfor %}
+            {% endcache %}
             </div>
         </div>
     </div>
