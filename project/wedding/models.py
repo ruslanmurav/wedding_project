@@ -4,9 +4,11 @@ from django.db import models
 class Wedding(models.Model):
     bride_name = models.CharField(max_length=255, verbose_name='Имя невесты')
     groom_name = models.CharField(max_length=255, verbose_name='Имя жениха')
-    wedding_date = models.DateTimeField(verbose_name='Дата свадьбы')
-    wedding_location = models.CharField(max_length=255, blank=True, verbose_name='Место проведения')
+    wedding_date = models.DateTimeField(verbose_name='Дата свадьбы', blank=True)
+    wedding_location = models.CharField(max_length=255, verbose_name='Место проведения')
     wedding_description = models.TextField(verbose_name='Описание')
+
+
 
     class Meta:
         verbose_name = 'свадьбу'
@@ -41,7 +43,7 @@ class Photo(models.Model):
         verbose_name_plural = 'Фото'
 
     def __str__(self):
-        return f"Фото свадьбы: {self.wedding.bride_name} + {self.wedding.groom_name} "
+        return f"Фото свадьбы: {self.wedding.bride_name} + {self.wedding.groom_name}"
 
 
 class Moderate(Comment, models.Model):

@@ -16,8 +16,10 @@ class ModerateAdmin(admin.ModelAdmin):
 
 @admin.register(Wedding)
 class WeddingAdmin(admin.ModelAdmin):
-    list_display = (Wedding, 'wedding_date', 'wedding_location')
+    list_display = (Wedding.__str__, 'wedding_date', 'wedding_location')
     search_fields = ('wedding_date',)
+    Wedding.__str__.short_description = 'Свадьба'
+
 
 
 @admin.register(Comment)
@@ -28,10 +30,11 @@ class CommentAdmin(admin.ModelAdmin):
 
 @admin.register(Photo)
 class PhotoAdmin(admin.ModelAdmin):
-    list_display = (Wedding, 'get_html_photo', 'photo_description')
+    list_display = (Photo.__str__, 'get_html_photo', 'photo_description')
     search_fields = ('wedding',)
     fields = ('wedding', 'photo_url', 'get_html_photo', 'photo_description')
     readonly_fields = ('get_html_photo',)
+    Photo.__str__.short_description = 'Свадьба'
 
     def get_html_photo(self, object):
         if object.photo_url:
