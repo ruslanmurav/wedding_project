@@ -37,4 +37,4 @@ class PhotoAdmin(admin.ModelAdmin):
         if object.photo_url:
             return mark_safe(f"<img src='{object.photo_url.url}' width=100>")
 
-    get_html_photo.short_description = 'ФОТО'
+    get_html_photo.short_description = 'Фото'
