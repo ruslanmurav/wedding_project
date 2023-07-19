@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.utils.safestring import mark_safe
 from wedding.models import Wedding, Comment, Photo, Moderate
 
 admin.site.site_title = 'Админ-панель'
@@ -27,5 +28,13 @@ class CommentAdmin(admin.ModelAdmin):
 
 @admin.register(Photo)
 class PhotoAdmin(admin.ModelAdmin):
-    list_display = ('photo_url', 'photo_description')
+    list_display = (Wedding, 'get_html_photo', 'photo_description')
     search_fields = ('wedding',)
+    fields = ('wedding', 'photo_url', 'get_html_photo', 'photo_description')
+    readonly_fields = ('get_html_photo',)
+
+    def get_html_photo(self, object):
+        if object.photo_url:
+            return mark_safe(f"<img src='{object.photo_url.url}' width=100>")
+
+    get_html_photo.short_description = 'ФОТО'
