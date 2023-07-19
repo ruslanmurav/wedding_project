@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from wedding.models import Wedding, Comment, Photo
 from wedding.forms import CommentForm
+from django.core.cache import cache
 
 
 class MainView(TemplateView):

@@ -178,16 +178,28 @@ form {
     margin: 0 auto;
     margin-bottom: 10px;
     padding-top: 5px;
+    width: 348.96px
 }
 
 #marrige-date {
     margin: 0 auto;
     margin-bottom: 10px;
+    width: 349.6px
 }
+
+/* input[type="date"]:not(.has-value):before{
+    color: #cbcbcb;
+    content: attr(placeholder);
+} */
+
+input::-webkit-datetime-edit-fields-wrapper{color:gray}
+
 
 #user-comment {
     margin: 0 auto;
     resize: none;
+    width: 351.2px;
+    margin-bottom: 5px;
 }
 
 ::placeholder {
@@ -286,3 +298,4 @@ input {
     margin-right: 50px;
     margin-bottom: 20px;
 }
+
