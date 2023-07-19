@@ -1,5 +1,6 @@
 {% extends 'wedding/base.html' %}
 {% load static %}
+{% load cache %}
 
 {% block content %}
 
@@ -16,12 +17,14 @@
     </div>
     <div id="marrige-photo-box">
         <div class="fixed-block">
+        {% cache 30 first_photos %}
             {% for wedding, photo in first_photos.items %}
                 <div class="marrige-photo-block">
                     <img src="{{ photo.url }}">
                     <h3>{{ wedding }}</h3>
                 </div>
             {% endfor %}
+        {% endcache %}
         </div>
     </div>
 
@@ -55,6 +58,7 @@
                 <h1>Отзывы клиентов</h1>
             </div>
             <div id="comment-holder-box">
+            {% cache 30 comments %}
                 {% for comment in comments %}
                     <div class="comment-box">
                         <div class="comment-img">
@@ -65,18 +69,19 @@
                         </div>
                     </div>
                 {% endfor %}
+            {% endcache %}
             </div>
         </div>
     </div>
 
-    <div id="fifth-page">
-        <div class="fixed-block">
-            <div id="user-comment-header">
-                <h1>Комментарии</h1>
-            </div>
-            <form action="{% url 'main' %}" method="post">
-                {% csrf_token %}
-                {{ form.as_p }}
+{#    <div id="fifth-page">#}
+{#        <div class="fixed-block">#}
+{#            <div id="user-comment-header">#}
+{#                <h1>Комментарии</h1>#}
+{#            </div>#}
+{##}
+{#            <form action="{% url 'main' %}" method="post">#}
+{#                {% csrf_token %}#}
 {#                <input type="text" name="user-name" id="user-name" placeholder="Имя" size="53">#}
 {#                <br>#}
 {#                <label for="marrige-date">Дата свадьбы</label>#}
@@ -84,6 +89,24 @@
 {#                <br>#}
 {#                <textarea id="user-comment" maxlength="1000" cols="52" rows="10" placeholder="Ваш комментарий"></textarea>#}
 {#                <input type="commit">#}
+{#                <input type="submit" id="user-comment-form-submit">#}
+{#            </form>#}
+{#        </div>#}
+{#    </div>#}
+    <div id="fifth-page">
+        <div class="fixed-block">
+            <div id="user-comment-header">
+                <h1>Комментарии</h1>
+            </div>
+            <form action="{% url 'main' %}" method="post">
+                {% csrf_token %}
+                {{ form.commenter_name }}
+                <br>
+              {{ form.comment_date }}
+                <br>
+               {{ form.comment_text }}
+                <br>
+                <br>
                 <input type="submit" id="user-comment-form-submit">
             </form>
         </div>
