@@ -1,6 +1,9 @@
 from django.contrib import admin
 from wedding.models import Wedding, Comment, Photo, Moderate
 
+admin.site.site_title = 'Админ-панель'
+admin.site.site_header = 'Админ-панель'
+
 
 @admin.register(Moderate)
 class ModerateAdmin(admin.ModelAdmin):
