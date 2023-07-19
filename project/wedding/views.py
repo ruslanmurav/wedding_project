@@ -32,7 +32,10 @@ class MainView(TemplateView):
 
 
 def pageNotFound(request, exception):
-    return render(request, 'wedding/404.html')
+    context = {
+        'title': 'Страница не найдена!'
+    }
+    return render(request, 'wedding/404.html', context)
 
 
 
