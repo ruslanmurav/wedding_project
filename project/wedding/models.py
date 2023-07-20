@@ -53,3 +53,11 @@ class Moderate(Comment, models.Model):
         verbose_name_plural = 'Модерация комментариев'
 
 
+class SitePhotos(models.Model):
+    photo_name = models.ImageField(upload_to='site_photo',)
+    site_photo = models.ImageField(upload_to='site_photo',)
+
+
+
+
+
