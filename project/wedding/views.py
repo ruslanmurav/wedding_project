@@ -32,7 +32,6 @@ class MainView(TemplateView):
 
         context['form'] = CommentForm()
 
-        context['site_photos'] = SitePhotos.objects.get(id=1)
 
 
         return context
