@@ -8,7 +8,16 @@ admin.site.site_header = 'Админ-панель'
 
 @admin.register(SitePhotos)
 class SitePhotosAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('get_html_photo',)
+    fields = ('site_photo', 'get_html_photo')
+    readonly_fields = ('get_html_photo',)
+
+    def get_html_photo(self, object):
+        if object.site_photo:
+            return mark_safe(f"<img src='{object.site_photo.url}' width=100>")
+
+    get_html_photo.short_description = 'Фото'
+
 
 
 @admin.register(Moderate)
@@ -30,6 +39,14 @@ class WeddingAdmin(admin.ModelAdmin):
 class CommentAdmin(admin.ModelAdmin):
     list_display = ('commenter_name', 'comment_date', 'comment_text')
     search_fields = ('commenter_name', 'comment_date')
+    fields = ('commenter_name', 'commenter_avatar', 'get_html_photo', 'comment_text', 'comment_date', 'is_accepted')
+    readonly_fields = ('get_html_photo',)
+
+    def get_html_photo(self, object):
+        if object.site_photo:
+            return mark_safe(f"<img src='{object.site_photo.url}' width=100>")
+
+    get_html_photo.short_description = 'Фото'
 
 
 @admin.register(Photo)

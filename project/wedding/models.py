@@ -55,10 +55,14 @@ class Moderate(Comment, models.Model):
 
 class SitePhotos(models.Model):
     photo_name = models.CharField(max_length=255)
-    site_photo = models.ImageField(upload_to='site_photo')
+    site_photo = models.ImageField(upload_to='site_photo', verbose_name='Картинка')
+
+    class Meta:
+        verbose_name = 'картинку'
+        verbose_name_plural = 'Фото на страницах сайта'
 
     def __str__(self):
-        return f"Фото: {self.photo_name}"
+        return f"Фото:"
 
 
 
