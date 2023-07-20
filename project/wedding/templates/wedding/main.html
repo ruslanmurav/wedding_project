@@ -8,17 +8,17 @@
     <div id="first-page-photo-holder">
         <div class="fixed-block">
             <div id="first-user-img">
-                <img src="{% static 'vendor/images/marrige1.png' %}">
+                <img src="">
             </div>
             <div id="second-user-img">
-                <img src="{% static 'vendor/images/marrige2.png' %}">
+                <img src="">
             </div>
         </div>
     </div>
     <div id="marrige-photo-box">
         <div class="fixed-block">
         {% cache 30 first_photos %}
-            {% for wedding, photo in first_photos.items %}
+            {% for wedding, photo in wedding_photos.items %}
                 <div class="marrige-photo-block">
                     <img src="{{ photo.url }}">
                     <h3>{{ wedding }}</h3>
@@ -48,7 +48,7 @@
                 </div>
         </div>
             <div id="organizer-photo">
-                <img src="{% static 'vendor/images/Katya.png' %}">
+                <img src="">
             </div>
         </div>
     </div>
@@ -62,7 +62,7 @@
                 {% for comment in comments %}
                     <div class="comment-box">
                         <div class="comment-img">
-                            <img src="{{ comment.commenter_avatar }}">
+                            <img src="media/{{ comment.commenter_avatar }}">
                         </div>
                         <div class="comment-text-box">
                             {{ comment.comment_text }}
