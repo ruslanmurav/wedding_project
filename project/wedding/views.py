@@ -32,7 +32,12 @@ class MainView(TemplateView):
 
         context['form'] = CommentForm()
 
-        context['site_photos'] = SitePhotos.objects.get(id=1)
+        all_photos = SitePhotos.objects.all()
+        photo_dict = {}
+        for photo in all_photos:
+            photo_dict[photo.photo_name] = photo.site_photo
+
+        context['site_photos'] = photo_dict
 
 
         return context
