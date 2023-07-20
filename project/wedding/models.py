@@ -57,6 +57,8 @@ class SitePhotos(models.Model):
     photo_name = models.CharField(max_length=255)
     site_photo = models.ImageField(upload_to='site_photo')
 
+    def __str__(self):
+        return f"Фото: {self.photo_name}"
 
 
 
