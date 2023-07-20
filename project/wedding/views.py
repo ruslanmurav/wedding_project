@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
-from wedding.models import Wedding, Comment, Photo
+from wedding.models import Wedding, Comment, Photo, SitePhotos
 from wedding.forms import CommentForm
 from django.core.cache import cache
 
@@ -27,9 +27,13 @@ class MainView(TemplateView):
         context['wedding_photos'] = wedding_photos
 
         comments = Comment.objects.filter(is_accepted=True)
+
         context['comments'] = comments
 
         context['form'] = CommentForm()
+
+        context['site_photos'] = SitePhotos.objects.get(id=1)
+
 
         return context
 
