@@ -7,6 +7,31 @@ from django.core.cache import cache
 
 class MainView(TemplateView):
     template_name = 'wedding/main.html'
+    title = 'Главная страница'
+
+    def get_queryset(self):
+        return Wedding.objects.order_by("-id")[:4]
+
+    def get_wedding_photos(self, weddings):
+        photos = Photo.objects.all()
+        return {wedding: next((photo.photo_url for photo in photos if photo.wedding_id == wedding.id), None) for wedding in weddings}
+
+    def get_context_data(self, **kwargs):
+        context = super(MainView, self).get_context_data(**kwargs)
+        context['title'] = self.title
+
+        latest_weddings = self.get_queryset()
+        context['weddings'] = latest_weddings
+
+        wedding_photos = self.get_wedding_photos(latest_weddings)
+        context['wedding_photos'] = wedding_photos
+
+        comments = Comment.objects.filter(is_accepted=True)
+        context['comments'] = comments
+
+        context['form'] = CommentForm()
+
+        return context
 
     def post(self, request, *args, **kwargs):
         form = CommentForm(request.POST)
@@ -14,22 +39,6 @@ class MainView(TemplateView):
             form.save()
         return redirect('main')
 
-    def get_context_data(self, **kwargs):
-        context = super(MainView, self).get_context_data()
-        context['title'] = 'Главная страница'
-        latest_weddings = Wedding.objects.none() if Wedding.objects.count() == 0 else Wedding.objects.order_by("-id")[:4]
-        context['weddings'] = latest_weddings
-        photos = Photo.objects.all()
-        first_photos = {}
-        for wedding in latest_weddings:
-            for photo in photos:
-                if photo.wedding_id == wedding.id and wedding not in first_photos:
-                    first_photos[wedding] = photo.photo_url
-        context['first_photos'] = first_photos
-        comments = Comment.objects.filter(is_accepted=1)
-        context['comments'] = comments
-        context['form'] = CommentForm()
-        return context
 
 
 def pageNotFound(request, exception):
@@ -37,9 +46,3 @@ def pageNotFound(request, exception):
         'title': 'Страница не найдена!'
     }
     return render(request, 'wedding/404.html', context)
-
-
-
-
-
-
