@@ -1,9 +1,14 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from wedding.models import Wedding, Comment, Photo, Moderate
+from wedding.models import Wedding, Comment, Photo, Moderate, SitePhotos
 
 admin.site.site_title = 'Админ-панель'
 admin.site.site_header = 'Админ-панель'
+
+
+@admin.register(SitePhotos)
+class SitePhotosAdmin(admin.ModelAdmin):
+    pass
 
 
 @admin.register(Moderate)
@@ -19,7 +24,6 @@ class WeddingAdmin(admin.ModelAdmin):
     list_display = (Wedding.__str__, 'wedding_date', 'wedding_location')
     search_fields = ('wedding_date',)
     Wedding.__str__.short_description = 'Свадьба'
-
 
 
 @admin.register(Comment)
