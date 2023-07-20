@@ -12,6 +12,13 @@ class MainView(TemplateView):
     def get_queryset(self):
         return Wedding.objects.order_by("-id")[:4]
 
+    def get_sitephoto(self):
+        all_photos = SitePhotos.objects.all()
+        photo_dict = {}
+        for photo in all_photos:
+            photo_dict[photo.photo_name] = photo.site_photo
+        return photo_dict
+
     def get_wedding_photos(self, weddings):
         photos = Photo.objects.all()
         return {wedding: next((photo.photo_url for photo in photos if photo.wedding_id == wedding.id), None) for wedding in weddings}
@@ -32,15 +39,7 @@ class MainView(TemplateView):
 
         context['form'] = CommentForm()
 
-
-        all_photos = SitePhotos.objects.all()
-        photo_dict = {}
-        for photo in all_photos:
-            photo_dict[photo.photo_name] = photo.site_photo
-
-        context['site_photos'] = photo_dict
-
-
+        context['site_photos'] = self.get_sitephoto()
 
         return context
 
