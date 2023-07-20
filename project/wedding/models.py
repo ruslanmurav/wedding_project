@@ -54,8 +54,8 @@ class Moderate(Comment, models.Model):
 
 
 class SitePhotos(models.Model):
-    photo_name = models.ImageField(upload_to='site_photo',)
-    site_photo = models.ImageField(upload_to='site_photo',)
+    photo_name = models.CharField(max_length=255)
+    site_photo = models.ImageField(upload_to='site_photo')
 
 
 
