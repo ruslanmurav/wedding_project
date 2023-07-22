@@ -11,7 +11,7 @@ from wedding.views import MainView, pageNotFound
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', MainView.as_view(), name='main'),
-    path('portfolio/', include('wedding.urls', namespace='portfolio')), # localhost/porfolio/wedding/<int:pk>
+    path('portfolio/', include('wedding.urls', namespace='portfolio')),   # localhost/porfolio/wedding/<int:pk>
 ]
 
 

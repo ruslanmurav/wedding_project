@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
+from common.views import TitleMixin
 
 from project.settings import BASE_DIR
 from wedding.models import Wedding, Comment, Photo, SitePhotos
@@ -7,7 +8,7 @@ from wedding.forms import CommentForm
 from django.core.cache import cache
 
 
-class MainView(TemplateView):
+class MainView(TitleMixin, TemplateView):
     template_name = 'wedding/main.html'
     title = 'Главная страница'
 
@@ -27,7 +28,6 @@ class MainView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(MainView, self).get_context_data(**kwargs)
-        context['title'] = self.title
 
         latest_weddings = self.get_queryset()
         context['weddings'] = latest_weddings
@@ -60,20 +60,20 @@ def pageNotFound(request, exception):
     return render(request, 'wedding/404.html', context)
 
 
-class PortfolioView(TemplateView):
+class PortfolioView(TitleMixin, TemplateView):
     template_name = 'wedding/portfolio.html'
+    title = 'Портфолио'
 
     def get_context_data(self, **kwargs):
         context = super(PortfolioView, self).get_context_data()
-        context['title'] = 'Портфолио'
         return context
 
 
-class WeddingView(TemplateView):
+class WeddingView(TitleMixin, TemplateView):
     template_name = 'wedding/wedding_template.html'
+    title = 'Свадьба'
 
     def get_context_data(self, **kwargs):
         context = super(WeddingView, self).get_context_data()
-        context['title'] = 'Свадьба'
         context['pk'] = kwargs['pk']
         return context

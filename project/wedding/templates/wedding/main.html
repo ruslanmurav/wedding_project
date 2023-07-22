@@ -19,7 +19,7 @@
     <div id="marrige-photo-box">
         <div class="fixed-block">
 
-        {% cache 60 first_photos %}
+        {% cache 5 first_photos %}
             {% for wedding, photo in wedding_photos.items %}
                 <div class="marrige-photo-block">
                     <img src="{{ photo.url }}">
@@ -60,7 +60,7 @@
                 <h1>Отзывы клиентов</h1>
             </div>
             <div id="comment-holder-box">
-            {% cache 60 comments %}
+            {% cache 5 comments %}
                 {% for comment in comments %}
                     <div class="comment-box">
                         <div class="comment-img">

@@ -17,7 +17,7 @@ class Wedding(models.Model):
 
 class Comment(models.Model):
     commenter_name = models.CharField(max_length=255, verbose_name='Имя')
-    commenter_avatar = models.ImageField(upload_to='commenter_avatar', blank=True, verbose_name='Аватар')
+    commenter_avatar = models.ImageField(upload_to='commenter_avatar', blank=True, verbose_name='Аватар', default='commenter_avatar/default.png')
     comment_text = models.TextField(verbose_name='Текст')
     comment_date = models.DateTimeField(verbose_name='Дата создания')
     is_accepted = models.BooleanField(default=False, verbose_name='Статус модерации')
@@ -33,7 +33,7 @@ class Comment(models.Model):
 class Photo(models.Model):
     wedding = models.ForeignKey(to=Wedding, on_delete=models.CASCADE, verbose_name='Свадьба')
     photo_url = models.ImageField(upload_to='wedding_photo', verbose_name='Аватар')
-    photo_description = models.CharField(max_length=255, verbose_name='Описание')
+    photo_description = models.CharField(max_length=255, verbose_name='Описание', blank=True)
 
     class Meta:
         verbose_name = 'фото'
