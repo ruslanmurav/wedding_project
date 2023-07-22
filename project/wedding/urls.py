@@ -13,3 +13,5 @@ urlpatterns = [
     path('', PortfolioView.as_view(), name='main'),
     path('<int:pk>/', WeddingView.as_view(), name='wedding'),
 ]
+
+#myanyo
