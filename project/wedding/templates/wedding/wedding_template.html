@@ -5,4 +5,13 @@
 
 {% block content %}
     это свадьба яман {{ pk }}
+    {% for video in videos %}
+        <video width="400" height="300" controls="controls">
+
+            <source src="{{ video.file.url }}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+
+        </video>
+
+    {% endfor %}
+
 {% endblock %}
