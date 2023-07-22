@@ -65,5 +65,13 @@ class SitePhotos(models.Model):
         return f"Фото:"
 
 
+class File(models.Model):
+    wedding = models.ForeignKey(to=Wedding, on_delete=models.CASCADE, verbose_name='Свадьба')
+    file = models.FileField(upload_to='wedding_files', verbose_name='Файл')
+    mark = models.IntegerField(verbose_name='Статус')
+
+    class Meta:
+        verbose_name = 'файл'
+        verbose_name_plural = 'Файлы'
 
 
