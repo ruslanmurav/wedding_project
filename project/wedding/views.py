@@ -56,3 +56,8 @@ def pageNotFound(request, exception):
         'title': 'Страница не найдена!'
     }
     return render(request, 'wedding/404.html', context)
+
+
+class PortfolioView(TemplateView):
+    template_name = 'wedding/portfolio.html.html'
+    title = 'Портфолио'

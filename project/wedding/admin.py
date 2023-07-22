@@ -1,9 +1,17 @@
 from django.contrib import admin
 from django.utils.safestring import mark_safe
-from wedding.models import Wedding, Comment, Photo, Moderate, SitePhotos
+from wedding.models import Wedding, Comment, Photo, Moderate, SitePhotos, File
 
 admin.site.site_title = 'Админ-панель'
 admin.site.site_header = 'Админ-панель'
+
+
+@admin.register(File)
+class FileAdmin(admin.ModelAdmin):
+    list_display = ('file', 'mark')
+
+
+
 
 
 @admin.register(SitePhotos)
