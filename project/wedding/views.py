@@ -79,7 +79,9 @@ class WeddingView(TitleMixin, TemplateView):
 
         files = File.objects.filter(wedding_id=kwargs['pk'], mark=1)
         context['videos'] = files
-        print(files[0].file.url)
 
+        photos = Photo.objects.filter(wedding_id=kwargs['pk'])
+        context['photos'] = photos
+        print(photos)
         return context
 
