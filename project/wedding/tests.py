@@ -1,6 +1,6 @@
 from django.test import TestCase, RequestFactory
 from django.urls import reverse
-from .models import Wedding, Photo, Comment
+from .models import Wedding, Photo, Comment, SitePhotos
 from .views import MainView
 from .forms import CommentForm
 
@@ -11,6 +11,7 @@ class MainViewTest(TestCase):
         wedding = Wedding.objects.create(bride_name='Невеста1', groom_name='Жених1', wedding_date='2023-07-20 15:30:00', wedding_location='Место1', wedding_description='Описание1')
         Photo.objects.create(wedding=wedding, photo_url='photo1.jpg')
         Comment.objects.create(commenter_name='John Doe', comment_text='Test comment 1', comment_date='2023-07-21 10:00:00', is_accepted=True)
+
 
     def setUp(self):
         self.factory = RequestFactory()
