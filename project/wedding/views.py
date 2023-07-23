@@ -56,7 +56,6 @@ def pageNotFound(request, exception):
     context = {
         'title': 'Страница не найдена!'
     }
-    print(BASE_DIR)
     return render(request, 'wedding/404.html', context)
 
 
@@ -73,15 +72,18 @@ class WeddingView(TitleMixin, TemplateView):
     template_name = 'wedding/wedding_template.html'
     title = 'Свадьба'
 
+    def get_files(self, **kwargs):
+        files = File.objects.filter(wedding_id=kwargs['pk'], mark=1)
+        return files
+
+    def get_photos(self, **kwargs):
+        photos = Photo.objects.filter(wedding_id=kwargs['pk'])
+        return photos
+
     def get_context_data(self, **kwargs):
         context = super(WeddingView, self).get_context_data()
         context['pk'] = kwargs['pk']
-
-        files = File.objects.filter(wedding_id=kwargs['pk'], mark=1)
-        context['videos'] = files
-
-        photos = Photo.objects.filter(wedding_id=kwargs['pk'])
-        context['photos'] = photos
-        print(photos)
+        context['videos'] = self.get_files(kwargs)
+        context['photos'] = self.get_photos(kwargs)
         return context
 
