@@ -12,7 +12,6 @@ class MainViewTest(TestCase):
         Photo.objects.create(wedding=wedding, photo_url='photo1.jpg')
         Comment.objects.create(commenter_name='John Doe', comment_text='Test comment 1', comment_date='2023-07-21 10:00:00', is_accepted=True)
 
-
     def setUp(self):
         self.factory = RequestFactory()
 

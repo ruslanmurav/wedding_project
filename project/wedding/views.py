@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from common.views import TitleMixin
+from django.core.paginator import Paginator
 
 from project.settings import BASE_DIR
 from wedding.models import Wedding, Comment, Photo, SitePhotos, File
@@ -60,9 +61,11 @@ def pageNotFound(request, exception):
     return render(request, 'wedding/404.html', context)
 
 
-class PortfolioView(TitleMixin, TemplateView):
+class PortfolioView(TitleMixin, ListView):
     template_name = 'wedding/portfolio.html'
+    model = Wedding
     title = 'Портфолио'
+    paginate_by = 2
 
     def get_context_data(self, **kwargs):
         context = super(PortfolioView, self).get_context_data()
@@ -83,5 +86,6 @@ class WeddingView(TitleMixin, TemplateView):
         photos = Photo.objects.filter(wedding_id=kwargs['pk'])
         context['photos'] = photos
         print(photos)
+
         return context
 
