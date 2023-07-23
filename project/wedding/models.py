@@ -7,6 +7,7 @@ class Wedding(models.Model):
     wedding_date = models.DateTimeField(verbose_name='Дата свадьбы', blank=True)
     wedding_location = models.CharField(max_length=255, verbose_name='Место проведения')
     wedding_description = models.TextField(verbose_name='Описание')
+
     class Meta:
         verbose_name = 'свадьбу'
         verbose_name_plural = 'Свадьбы'

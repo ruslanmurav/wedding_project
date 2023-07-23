@@ -1,9 +1,45 @@
 {% extends 'wedding/base.html' %}
 {% load static %}
 {% load cache %}
+{% block styles %}
+    <style>
+        .pagination {
+            display: inline-block;
+        }
+
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            border: 1px solid #ddd;
+        }
+
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+
+        .pagination a:hover:not(.active) {
+            background-color: #ddd;
+        }
+    </style>
+{% endblock %}
 
 
 {% block content %}
+    {% for wedding in object_list %}
+        <a href="{% url 'portfolio:wedding' wedding.pk %}">{{ wedding }}</a>
+        <br>
+    {% endfor %}
+    <div class="pagination">
+    {% for page in paginator %}
+        <a href="{% url 'wedding:paginator' page.number %}" {% if page.number == paginator.number %}class="active"{% endif %}>{{ page.number }}</a>
+    {% endfor %}
+</div>
+
+
 
 
 {% endblock %}
