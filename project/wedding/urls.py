@@ -10,7 +10,7 @@ from wedding.views import PortfolioView, WeddingView
 app_name = 'wedding'
 
 urlpatterns = [
-    path('', PortfolioView.as_view(), name='main'),
+    path('', PortfolioView.as_view(), name='portfolio'),
     path('page/<int:page>', PortfolioView.as_view(), name='paginator'),
     path('wedding/<int:pk>/', WeddingView.as_view(), name='wedding'),
 ]
