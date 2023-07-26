@@ -46,6 +46,12 @@ class MainView(TitleMixin, TemplateView):
 
         context['site_photos'] = self.get_sitephoto()
 
+        organizer = File.objects.get(file_name='О_организаторе')
+
+        with open(f'media/{organizer.file}', encoding='utf-8') as file:
+            organizer_text = file.read()
+
+        context['organizer'] = organizer_text
         return context
 
     def post(self, request, *args, **kwargs):
