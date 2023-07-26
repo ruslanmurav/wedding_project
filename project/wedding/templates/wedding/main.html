@@ -5,7 +5,7 @@
 
 {% block content %}
 
-
+{% cache 300 site_photos %}
     <div id="first-page-photo-holder">
         <div class="fixed-block">
             <div id="first-user-img">
@@ -16,17 +16,17 @@
             </div>
         </div>
     </div>
+{% endcache %}
     <div id="marrige-photo-box">
         <div class="fixed-block">
 
-        {% cache 5 first_photos %}
+        {% cache 30 first_photos %}
             {% for wedding, photo in wedding_photos.items %}
                 <div class="marrige-photo-block">
                     <img src="{{ photo.url }}">
                     <h3>{{ wedding }}</h3>
                 </div>
             {% endfor %}
-        {% endcache %}
         </div>
     </div>
 
@@ -48,10 +48,12 @@
                     какой то текст о том, кто такой наш организатор и почему свадьбы для него являются важными
                     какой то текст о том, кто такой наш организатор и почему свадьбы для него являются важными
                 </div>
-        </div>
+        </div>|
             <div id="organizer-photo">
                 <img src="media/{{ site_photos.main_page_avatar }}">
             </div>
+
+        {% endcache %}
         </div>
     </div>
     <div id="fourth-page">
@@ -60,7 +62,7 @@
                 <h1>Отзывы клиентов</h1>
             </div>
             <div id="comment-holder-box">
-            {% cache 5 comments %}
+            {% cache 30 comments %}
                 {% for comment in comments %}
                     <div class="comment-box">
                         <div class="comment-img">

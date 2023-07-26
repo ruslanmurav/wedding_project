@@ -11,10 +11,10 @@
                 <div class="line col"></div>
             </div>
             <div class="row">
-                {% for wedding in object_list %}
+                 {% for wedding in page_obj %}
                     <div class="marrige-box row g-0">
                     <div class="col-auto d-lg-block">
-                      <img src="{% static 'vendor/images/marrige-photo-3.jpg' %}" alt="Фото свадьбы" class="photo-container">
+                      <img src="{{ wedding.photos.0.photo_url.url }}" alt="Фото свадьбы" class="photo-container">
                     </div>
                     <div class="right-column col position-relative">
                         <strong class="d-inline-block mb-2 text-primary-emphasis"><h4><u>{{ wedding }}</u></h4></strong>
