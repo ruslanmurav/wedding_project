@@ -86,7 +86,7 @@ class VideoAdmin(admin.ModelAdmin):
 
 @admin.register(Text)
 class TextAdmin(admin.ModelAdmin):
-    fields = ('file', 'mark')
+    fields = ('file_name', 'file', 'mark')
 
     def get_queryset(self, request):
         queryset = super().get_queryset(request)
