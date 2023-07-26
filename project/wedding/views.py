@@ -28,6 +28,12 @@ class MainView(TitleMixin, TemplateView):
         photos = Photo.objects.all()
         return {wedding: next((photo.photo_url for photo in photos if photo.wedding_id == wedding.id), None) for wedding in weddings}
 
+    def get_organizer_text(self):
+        organizer = File.objects.get(file_name='О_организаторе')
+        with open(f'media/{organizer.file}', encoding='utf-8') as file:
+            organizer_text = file.read()
+        return organizer_text
+
     def get_context_data(self, **kwargs):
         context = super(MainView, self).get_context_data(**kwargs)
 
@@ -45,6 +51,8 @@ class MainView(TitleMixin, TemplateView):
         context['form'] = CommentForm()
 
         context['site_photos'] = self.get_sitephoto()
+
+        context['organizer'] = self.get_organizer_text()
 
         return context
 
@@ -93,3 +101,25 @@ class WeddingView(TitleMixin, TemplateView):
         context['photos'] = self.get_photos(**kwargs)
         return context
 
+
+class AboutUsView(TitleMixin, TemplateView):
+    template_name = 'wedding/about_us.html'
+    title = 'О нас'
+
+    def get_about_us_text(self):
+        about_us = File.objects.get(file_name='О_нас')
+        with open(f'media/{about_us.file}', encoding='utf-8') as file:
+            description = file.read()
+        return description
+
+    def get_quote_text(self):
+        quote = File.objects.get(file_name='Цитата')
+        with open(f'media/{quote.file}', encoding='utf-8') as file:
+            quote_text = file.read()
+        return quote_text
+
+    def get_context_data(self, **kwargs):
+        context = super(AboutUsView, self).get_context_data()
+        context['quote'] = self.get_quote_text()
+        context['text'] = self.get_about_us_text()
+        return context

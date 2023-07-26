@@ -6,12 +6,13 @@ from django.views.generic import TemplateView
 from django.views.decorators.cache import cache_page
 
 from project.settings import BASE_DIR
-from wedding.views import MainView, pageNotFound
+from wedding.views import MainView, pageNotFound, AboutUsView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', MainView.as_view(), name='main'),
     path('portfolio/', include('wedding.urls', namespace='portfolio')),   # localhost/porfolio/wedding/<int:pk>
+    path('about_us/', AboutUsView.as_view(), name='about_us')
 ]
 
 if settings.DEBUG:
