@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'PoiretOne'; 
+    src: url("../fonts/PoiretOne-Regular.woff") format("woff"); 
+    src: url("../fonts/PoiretOne-Regular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
+html, body{
+	padding: 0;
+	margin: 0;
+	min-width: 1000px;
+    font-family: 'PoiretOne', sans-serif;
+    font-size: 20px;
+    font-weight: 600; 
+    background-color: #f1f0ec;
+}
+
+.fixed-block {
+    position: relative;
+	width: 960px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+.btn {
+    font-weight: 600; 
+}
+
+header {
+    background-color: #f1f0ec;
+}
+
+header button {
+    background-color: white;
+}
+
+.line {
+    background-color: black;
+    height: 1px;
+    
+}
+
+.photo-container {
+    width: 230px;
+}
+
+.photo-container img{
+    width: 230px;
+}
+
+.marrige-box {
+    width: 440px;
+    margin-right: 40px;
+    height: 290px;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+
+.right-column {
+    text-align: center;
+    padding-left: 15px;
+    height: 290px;
+}
+
+.right-column-text {
+    font-size: 17px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 8;
+    overflow: hidden;
+}
+
+.right-column-link {
+    position: absolute;
+    bottom: 0; 
+    right: 0;
+    color: black;
+}
+
+.numbers {
+    display: flex;
+    float: right;
+    margin-right: 40px;
+}
+
+.pagination {
+    margin: 10px;
+}

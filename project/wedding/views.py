@@ -1,6 +1,8 @@
+from django.db.models import Prefetch
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from common.views import TitleMixin
+from django.core.paginator import Paginator
 
 from project.settings import BASE_DIR
 from wedding.models import Wedding, Comment, Photo, SitePhotos, File
@@ -33,6 +35,7 @@ class MainView(TitleMixin, TemplateView):
         context['weddings'] = latest_weddings
 
         wedding_photos = self.get_wedding_photos(latest_weddings)
+
         context['wedding_photos'] = wedding_photos
 
         comments = Comment.objects.filter(is_accepted=True)
@@ -59,13 +62,16 @@ def pageNotFound(request, exception):
     return render(request, 'wedding/404.html', context)
 
 
-class PortfolioView(TitleMixin, TemplateView):
+class PortfolioView(TitleMixin, ListView):
     template_name = 'wedding/portfolio.html'
+    model = Wedding
     title = 'Портфолио'
+    paginate_by = 2
 
-    def get_context_data(self, **kwargs):
-        context = super(PortfolioView, self).get_context_data()
-        return context
+    def get_queryset(self):
+        return super().get_queryset().prefetch_related(
+            Prefetch('photo_set', queryset=Photo.objects.all()[:1], to_attr='photos')
+        )
 
 
 class WeddingView(TitleMixin, TemplateView):
