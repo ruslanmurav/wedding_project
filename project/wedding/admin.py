@@ -76,12 +76,19 @@ class PhotoAdmin(admin.ModelAdmin):
 
 @admin.register(Video)
 class VideoAdmin(admin.ModelAdmin):
-    fields = ('wedding', 'file')
+    fields = ('wedding', 'file', 'get_html_photo')
+    readonly_fields = ('get_html_photo',)
 
     def get_queryset(self, request):
         queryset = super().get_queryset(request)
         queryset = queryset.filter(mark=1)
         return queryset
+
+    def get_html_photo(self, object):
+        if object.file:
+            return mark_safe(f'<video width="400" height="300" controls="controls"> <source src="{ object.file.url }" type="video/mp4; codecs=\"avc1.42E01E, mp4a.40.2\""></video>')
+
+    get_html_photo.short_description = 'Видео'
 
 
 @admin.register(Text)
