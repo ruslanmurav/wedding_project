@@ -93,3 +93,22 @@ class WeddingView(TitleMixin, TemplateView):
         context['photos'] = self.get_photos(**kwargs)
         return context
 
+
+class AboutUsView(TitleMixin, TemplateView):
+    template_name = 'wedding/about_us.html'
+    title = 'О нас'
+
+    def get_context_data(self, **kwargs):
+        context = super(AboutUsView, self).get_context_data()
+
+        quote = File.objects.get(file_name='Цитата')
+        about_us = File.objects.get(file_name='about_us')
+
+        with open(f'media/{quote.file}', encoding='utf-8') as file:
+            quote_text = file.read()
+        with open(f'media/{about_us.file}', encoding='utf-8') as file:
+            description = file.read()
+
+        context['quote'] = quote_text
+        context['text'] = description
+        return context
