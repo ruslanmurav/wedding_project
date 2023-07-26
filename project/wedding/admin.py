@@ -76,8 +76,10 @@ class PhotoAdmin(admin.ModelAdmin):
 
 @admin.register(Video)
 class VideoAdmin(admin.ModelAdmin):
+    list_display = (Video.__str__,)
     fields = ('wedding', 'file', 'get_html_photo')
     readonly_fields = ('get_html_photo',)
+    Video.__str__.short_description = 'Видео'
 
     def get_queryset(self, request):
         queryset = super().get_queryset(request)
@@ -93,7 +95,9 @@ class VideoAdmin(admin.ModelAdmin):
 
 @admin.register(Text)
 class TextAdmin(admin.ModelAdmin):
+    list_display = ('file_name',)
     fields = ('file_name', 'file', 'mark')
+    readonly_fields = ('file_name', 'mark')
 
     def get_queryset(self, request):
         queryset = super().get_queryset(request)

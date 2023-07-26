@@ -64,7 +64,7 @@ class SitePhotos(models.Model):
 
 
 class File(models.Model):
-    file_name = models.CharField(max_length=255, blank=True)
+    file_name = models.CharField(max_length=255, blank=True, verbose_name='Имя файла')
     wedding = models.ForeignKey(to=Wedding, on_delete=models.CASCADE, verbose_name='Свадьба', blank=True, null=True)
     file = models.FileField(upload_to='wedding_files', verbose_name='Файл')
     mark = models.IntegerField(verbose_name='Статус', default=1)
@@ -80,6 +80,9 @@ class Video(File, models.Model):
         proxy = True
         verbose_name = 'видео'
         verbose_name_plural = 'Видео'
+
+    def __str__(self):
+        return f'Видео свадьбы: {self.wedding.bride_name} + {self.wedding.groom_name}'
 
 
 class Text(File, models.Model):
