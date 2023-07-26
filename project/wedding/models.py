@@ -64,7 +64,8 @@ class SitePhotos(models.Model):
 
 
 class File(models.Model):
-    wedding = models.ForeignKey(to=Wedding, on_delete=models.CASCADE, verbose_name='Свадьба', blank=True)
+    file_name = models.CharField(max_length=255, blank=True)
+    wedding = models.ForeignKey(to=Wedding, on_delete=models.CASCADE, verbose_name='Свадьба', blank=True, null=True)
     file = models.FileField(upload_to='wedding_files', verbose_name='Файл')
     mark = models.IntegerField(verbose_name='Статус', default=1)
 
