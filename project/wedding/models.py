@@ -64,12 +64,27 @@ class SitePhotos(models.Model):
 
 
 class File(models.Model):
-    wedding = models.ForeignKey(to=Wedding, on_delete=models.CASCADE, verbose_name='Свадьба')
+    wedding = models.ForeignKey(to=Wedding, on_delete=models.CASCADE, verbose_name='Свадьба', blank=True)
     file = models.FileField(upload_to='wedding_files', verbose_name='Файл')
-    mark = models.IntegerField(verbose_name='Статус')
+    mark = models.IntegerField(verbose_name='Статус', default=1)
 
     class Meta:
         verbose_name = 'файл'
         verbose_name_plural = 'Файлы'
 
+
+class Video(File, models.Model):
+
+    class Meta:
+        proxy = True
+        verbose_name = 'видео'
+        verbose_name_plural = 'Видео'
+
+
+class Text(File, models.Model):
+
+    class Meta:
+        proxy = True
+        verbose_name = 'текст'
+        verbose_name_plural = 'Тексты'
 
