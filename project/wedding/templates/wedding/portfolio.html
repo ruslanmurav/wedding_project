@@ -19,7 +19,7 @@
                     <div class="right-column col position-relative">
                         <strong class="d-inline-block mb-2 text-primary-emphasis"><h4><u>{{ wedding }}</u></h4></strong>
                         <p class="right-column-text card-text">
-                            {{ wedding.wedding_description }}
+                            {{ wedding.wedding_description|truncatewords:15 }}
                         </p>
                         <a href="{% url 'wedding:wedding' wedding.pk %}" class="right-column-link icon-link gap-1 icon-link-hover stretched-link">
                             смотреть

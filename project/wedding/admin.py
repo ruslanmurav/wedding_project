@@ -2,15 +2,15 @@ from django.contrib import admin
 from django.utils.safestring import mark_safe
 
 import project.settings
-from wedding.models import Wedding, Comment, Photo, Moderate, SitePhotos, File
+from wedding.models import Wedding, Comment, Photo, Moderate, SitePhotos, File, Video, Text
 
 admin.site.site_title = 'Админ-панель'
 admin.site.site_header = 'Админ-панель'
 
 
-@admin.register(File)
-class FileAdmin(admin.ModelAdmin):
-    list_display = ('file', 'mark')
+# @admin.register(File)
+# class FileAdmin(admin.ModelAdmin):
+#     list_display = ('file', 'mark')
 
 
 
@@ -72,3 +72,23 @@ class PhotoAdmin(admin.ModelAdmin):
             return mark_safe(f"<img src='{object.photo_url.url}' width=100>")
 
     get_html_photo.short_description = 'Фото'
+
+
+@admin.register(Video)
+class VideoAdmin(admin.ModelAdmin):
+    fields = ('wedding', 'file')
+
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+        queryset = queryset.filter(mark=1)
+        return queryset
+
+
+@admin.register(Text)
+class TextAdmin(admin.ModelAdmin):
+    fields = ('file', 'mark')
+
+    def get_queryset(self, request):
+        queryset = super().get_queryset(request)
+        queryset = queryset.filter(mark=2)
+        return queryset
