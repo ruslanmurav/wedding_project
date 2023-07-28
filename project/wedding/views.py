@@ -74,7 +74,7 @@ class PortfolioView(TitleMixin, ListView):
     template_name = 'wedding/portfolio.html'
     model = Wedding
     title = 'Портфолио'
-    paginate_by = 2
+    paginate_by = 4
 
     def get_queryset(self):
 
