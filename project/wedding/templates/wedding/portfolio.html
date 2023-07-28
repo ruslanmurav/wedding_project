@@ -3,39 +3,154 @@
 {% load cache %}
 
 {% block content %}
-    <main class="fixed-block">
-            <div class="row align-items-center" style="margin-top: 20px;">
-                <div class="col-2">
-                    <h3>Свадьбы</h3>
+{#    <main class="fixed-block">#}
+{#            <div class="row align-items-center" style="margin-top: 20px;">#}
+{#                <div class="col-2">#}
+{#                    <h3>Свадьбы</h3>#}
+{#                </div>#}
+{#                <div class="line col"></div>#}
+{#            </div>#}
+{#            <div class="row">#}
+{#                 {% for wedding in page_obj %}#}
+{#                    <div class="marrige-box row g-0">#}
+{#                    <div class="col-auto d-lg-block">#}
+{#                      <img src="{{ wedding.photos.0.photo_url.url }}" alt="Фото свадьбы" class="photo-container">#}
+{#                    </div>#}
+{#                    <div class="right-column col position-relative">#}
+{#                        <strong class="d-inline-block mb-2 text-primary-emphasis"><h4><u>{{ wedding }}</u></h4></strong>#}
+{#                        <p class="right-column-text card-text">#}
+{#                            {{ wedding.wedding_description|truncatechars:15 }}#}
+{#                        </p>#}
+{#                        <a href="{% url 'wedding:wedding' wedding.pk %}" class="right-column-link icon-link gap-1 icon-link-hover stretched-link">#}
+{#                            смотреть#}
+{#                        </a>#}
+{#                    </div>#}
+{#                    </div>#}
+{#                {% endfor %}#}
+{##}
+{##}
+{#            </div>#}
+{##}
+{#                <div class="pagination">#}
+{#    {% for page in paginator %}#}
+{#        <a href="{% url 'wedding:paginator' page.number %}" {% if page.number == paginator.number %}class="active"{% endif %}>{{ page.number }}</a>#}
+{#    {% endfor %}#}
+{#</div>#}
+{#        </main>#}
+            <div id="head-inscription" class="d-flex align-items-center">
+            <div class="line col-2"></div>
+            <div class="head-text col-1">
+                <h3>Свадьбы</h3>
+            </div>
+            <div class="line col"></div>
+        </div>
+        <div class="" style="height: 25px;"></div>
+
+
+        <main class="fixed-block col-12">
+            <div class="block row">
+                <div class="row col-lg text-center mb-4 justify-content-center">
+                    <div class="col-12 row jutsu">
+                        <div class="col-sm-6" >
+                            <img src="static/vendor/images/marrige-photo-3.jpg" alt="Фото свадьбы" class="photo-container col-12">
+                        </div>
+                        <div class="right-column col-sm-6 justify-content-end">
+                            <strong class=""><h4>Руслан и Влад</h4></strong>
+                            <p class="right-column-text resizeble-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt at corporis blanditiis vero voluptatibus nihil pariatur, accusantium animi aspernatur excepturi a laudantium nam fugiat ipsam maxime tempore cum provident doloribus!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt at corporis blanditiis vero voluptatibus nihil pariatur, accusantium animi aspernatur excepturi a laudantium nam fugiat ipsam maxime tempore cum provident doloribus!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt at corporis blanditiis vero voluptatibus nihil pariatur, accusantium animi aspernatur excepturi a laudantium nam fugiat ipsam maxime tempore cum provident doloribus!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt at corporis blanditiis vero voluptatibus nihil pariatur, accusantium animi aspernatur excepturi a laudantium nam fugiat ipsam maxime tempore cum provident doloribus!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt at corporis blanditiis vero voluptatibus nihil pariatur, accusantium animi aspernatur excepturi a laudantium nam fugiat ipsam maxime tempore cum provident doloribus!
+                            </p>
+                            <a href="#" class="">
+                                <p class="text-center">смотреть</p>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-                <div class="line col"></div>
+                <div class="col-lg-1"></div>
+                <div class="row col-lg text-center mb-4 justify-content-center">
+                    <div class="col-12 row jutsu">
+                        <div class="col-sm-6" >
+                            <img src="static/vendor/images/marrige-photo-3.jpg" alt="Фото свадьбы" class="photo-container">
+                        </div>
+                        <div class="right-column col-sm-6 justify-content-end">
+                            <strong class=""><h4>Руслан и Влад</h4></strong>
+                            <p class="right-column-text resizeble-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt at corporis blanditiis vero voluptatibus nihil pariatur, accusantium animi aspernatur excepturi a laudantium nam fugiat ipsam maxime tempore cum provident doloribus!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt at corporis blanditiis vero voluptatibus nihil pariatur, accusantium animi aspernatur excepturi a laudantium nam fugiat ipsam maxime tempore cum provident doloribus!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt at corporis blanditiis vero voluptatibus nihil pariatur, accusantium animi aspernatur excepturi a laudantium nam fugiat ipsam maxime tempore cum provident doloribus!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt at corporis blanditiis vero voluptatibus nihil pariatur, accusantium animi aspernatur excepturi a laudantium nam fugiat ipsam maxime tempore cum provident doloribus!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt at corporis blanditiis vero voluptatibus nihil pariatur, accusantium animi aspernatur excepturi a laudantium nam fugiat ipsam maxime tempore cum provident doloribus!
+                            </p>
+                            <a href="#" class="">
+                                <p class="text-center">смотреть</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="row">
-                 {% for wedding in page_obj %}
-                    <div class="marrige-box row g-0">
-                    <div class="col-auto d-lg-block">
-                      <img src="{{ wedding.photos.0.photo_url.url }}" alt="Фото свадьбы" class="photo-container">
+            <div class="block row">
+                <div class="row col-lg text-center mb-4 justify-content-center">
+                    <div class="col-12 row jutsu">
+                        <div class="col-sm-6" >
+                            <img src="static/vendor/images/marrige-photo-3.jpg" alt="Фото свадьбы" class="photo-container col-12">
+                        </div>
+                        <div class="right-column col-sm-6 justify-content-end">
+                            <strong class=""><h4>Руслан и Влад</h4></strong>
+                            <p class="right-column-text resizeble-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt at corporis blanditiis vero voluptatibus nihil pariatur, accusantium animi aspernatur excepturi a laudantium nam fugiat ipsam maxime tempore cum provident doloribus!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt at corporis blanditiis vero voluptatibus nihil pariatur, accusantium animi aspernatur excepturi a laudantium nam fugiat ipsam maxime tempore cum provident doloribus!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt at corporis blanditiis vero voluptatibus nihil pariatur, accusantium animi aspernatur excepturi a laudantium nam fugiat ipsam maxime tempore cum provident doloribus!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt at corporis blanditiis vero voluptatibus nihil pariatur, accusantium animi aspernatur excepturi a laudantium nam fugiat ipsam maxime tempore cum provident doloribus!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt at corporis blanditiis vero voluptatibus nihil pariatur, accusantium animi aspernatur excepturi a laudantium nam fugiat ipsam maxime tempore cum provident doloribus!
+                            </p>
+                            <a href="#" class="">
+                                <p class="text-center">смотреть</p>
+                            </a>
+                        </div>
                     </div>
-                    <div class="right-column col position-relative">
-                        <strong class="d-inline-block mb-2 text-primary-emphasis"><h4><u>{{ wedding }}</u></h4></strong>
-                        <p class="right-column-text card-text">
-                            {{ wedding.wedding_description|truncatechars:15 }}
-                        </p>
-                        <a href="{% url 'wedding:wedding' wedding.pk %}" class="right-column-link icon-link gap-1 icon-link-hover stretched-link">
-                            смотреть
-                        </a>
+                </div>
+                <div class="col-lg-1"></div>
+                <div class="row col-lg text-center mb-4 justify-content-center">
+                    <div class="col-12 row jutsu">
+                        <div class="col-sm-6" >
+                            <img src="static/vendor/images/marrige-photo-3.jpg" alt="Фото свадьбы" class="photo-container">
+                        </div>
+                        <div class="right-column col-sm-6 justify-content-end">
+                            <strong class=""><h4>Руслан и Влад</h4></strong>
+                            <p class="right-column-text resizeble-text">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt at corporis blanditiis vero voluptatibus nihil pariatur, accusantium animi aspernatur excepturi a laudantium nam fugiat ipsam maxime tempore cum provident doloribus!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt at corporis blanditiis vero voluptatibus nihil pariatur, accusantium animi aspernatur excepturi a laudantium nam fugiat ipsam maxime tempore cum provident doloribus!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt at corporis blanditiis vero voluptatibus nihil pariatur, accusantium animi aspernatur excepturi a laudantium nam fugiat ipsam maxime tempore cum provident doloribus!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt at corporis blanditiis vero voluptatibus nihil pariatur, accusantium animi aspernatur excepturi a laudantium nam fugiat ipsam maxime tempore cum provident doloribus!
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt at corporis blanditiis vero voluptatibus nihil pariatur, accusantium animi aspernatur excepturi a laudantium nam fugiat ipsam maxime tempore cum provident doloribus!
+                            </p>
+                            <a href="#" class="">
+                                <p class="text-center">смотреть</p>
+                            </a>
+                        </div>
                     </div>
-                    </div>
-                {% endfor %}
-
-
+                </div>
             </div>
+            <div class="numbers">
+                <a href="{% url 'portfolio:wedding' wedding.pk %}"></a>
 
                 <div class="pagination">
-    {% for page in paginator %}
-        <a href="{% url 'wedding:paginator' page.number %}" {% if page.number == paginator.number %}class="active"{% endif %}>{{ page.number }}</a>
-    {% endfor %}
-</div>
+                    <a href="{% url 'wedding:paginator' page.number %}" {% if page.number == paginator.number %} class="active"{% endif %}>1</a>
+                </div>
+                <a href="{% url 'portfolio:wedding' wedding.pk %}"></a>
+
+                <div class="pagination">
+                    <a href="{% url 'wedding:paginator' page.number %}" {% if page.number == paginator.number %}class="active"{% endif %}>2</a>
+                </div>
+                <a href="{% url 'portfolio:wedding' wedding.pk %}"></a>
+
+                <div class="pagination">
+                    <a href="{% url 'wedding:paginator' page.number %}" {% if page.number == paginator.number %}class="active"{% endif %}>3</a>
+                </div>
+            </div>
         </main>
 
 

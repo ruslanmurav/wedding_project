@@ -1,35 +1,200 @@
+@font-face {
+    font-family: 'PoiretOne'; 
+    src: url("../fonts/PoiretOne-Regular.woff") format("woff"); 
+    src: url("../fonts/PoiretOne-Regular.ttf") format("truetype"); 
+    font-style: normal; 
+    font-weight: normal; 
+} 
+
 html, body{
 	padding: 0;
 	margin: 0;
-	min-width: 1000px;
-    font-family: ;
+	/* min-width: 1000px; */
+    font-family: 'PoiretOne', sans-serif;
     font-size: 20px;
+    font-weight: 600; 
     background-color: #f1f0ec;
 }
 
-.fixed-block {
-    position: relative;
-	width: 960px;
-	margin: 0 auto;
-	overflow: hidden;
+header {
+    background-image: url(../images/headergradient.png);
+    background-repeat: repeat-x;
+    background-size: contain;
+    min-width: 650px;
+    padding: 20px;
+    height: 130px;
 }
 
-#header {
-    box-shadow: 0 0 7px rgba(0,0,0,0.5);
-    margin-bottom: 25px;
+a {
+    color: black;
+}
+
+
+a:hover {
+    color:#bbaf82;
+}
+
+
+
+.btn:hover {
+    color:#bbaf82;
+}
+
+
+.btn {
+    font-weight: 600;  
+    border: none;
+    box-shadow: none;
 }
 
 .logo {
-    max-width: 150px;
+    margin: 0.3em;
+  }
+
+
+.img-for-comment-block {
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+    padding-bottom: 100%;
+    height: 0;
     position: relative;
-    padding-top: 20px;
-    padding-left: 50px;
+    padding-left: 10px;
+    padding-top: 10px;
 }
 
-#first-page-photo-holder .fixed-block {
+.img-for-comment-block img {
+    width:90%;
+    height:90%;
+    position: absolute;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 7px rgba(0,0,0,0.5);
+}
+.comment-box {
+    width: 230px;
+    padding-left: 45px;
+    padding-right: 45px;
+    margin: 0 auto;
+    padding-bottom: 50px;
+}
+#first-page-photo-holder{
+    height:650px;
+
+}
+.myseflf-photo{
+    max-height: 380px;
+}
+.bottom{
+	position: relative;
+        bottom: 0;
+}
+
+footer {
+    color: #747371;
+}
+
+footer .col-4 {
+    padding-top: 20px;
+}
+
+.pushUp {
+    position: relative;
+    bottom: 3px;
+}
+
+.media {
+    z-index: 20;
+}
+
+.media img{
+    width: 25px;
+    height: 25px;
+}
+
+.media p {
+    margin-left: 5px;
+    /* position: relative;
+    bottom: 5px; */
+    color: #747371;
+}
+
+.myself-footer {
+    margin-top: 100px;
+}
+
+.mary-on-the-cross img {
+    position: relative;
+    width: 100%;
+    max-height: 262.5px;
+    box-shadow: 0 0 7px rgba(0,0,0,0.5);
+}
+.p-20{
+	padding:10px;
+	}
+
+.carousel {
+    padding-bottom: 100px;
+}
+
+.aiea{
+	overflow: hidden;
+        text-overflow: ellipsis;
+        display: -moz-box;
+        display: -webkit-box;
+        line-clamp: 4;
+        font-size: 0.9rem;
+        box-orient: vertical;
+        -moz-box-orient: vertical;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+        }
+        .carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 55px;
+  color: black;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: black;
+}
+
+.carousel-control-next-icon:after:hover
+{
+    color: #bbaf82;
+}
+
+.carousel-indicators [data-bs-target] {
+    background-color: #bbaf82;
+}
+
+.carousel-indicators .active {
+    background-color: #bbaf82;
+}
+
+.myself-container{
+  height: 200px;
+}
+.myAAA{
+    width:100%;
+}
+
+
+.first-page-photo-holder{
     height: 650px;
 }
-
 #first-user-img {
     position: relative;
     float: left;
@@ -58,120 +223,79 @@ html, body{
     box-shadow: 0 0 7px rgba(0,0,0,0.5);
 }
 
-#marrige-photo-box {
-    padding-top: 140px;
+
+#user-comment-button-wrapper .btn {
+    width: 250px;
+    height: 70px;
+    border: solid;
+    border-radius: 30px;
+    font-weight: 600;
+    box-shadow: none;
 }
 
-#marrige-photo-box h3 {
-    position: relative;
-    bottom: 10px;
-    text-align: center;
-}
+/* #user-comment-button-wrapper .btn:hover {
+    background-color: #000000;
+} */
 
-.marrige-photo-block {
-    position: relative;
-    max-width: 210px;
-    float: left;
-    padding-left: 20px;
-    padding-top: 10px;
-}
-
-.marrige-photo-block img {
-    position: relative;
-    max-width: 210px;
-    max-height: 262.5px;
-    box-shadow: 0 0 7px rgba(0,0,0,0.5);
-}
-
-#third-page {
-    padding-top: 200px;
-}
-
-#third-page-text-box {
-    float: left;
-    width: 570px;
-}
-
-#Why-us {
-    text-align: center;
-}
-
-#About-us {
-    padding-top: 50px;
-    text-align: center;
-    font-size: 20px;
-}
-
-#organizer-photo {
-    padding-right: 10px;
-    padding-top: 20px;
-    float: right;
-}
-
-#organizer-photo img {
-    box-shadow: 0 0 7px rgba(0,0,0,0.5);
-}
-
-
-#fourth-page {
-    padding-top: 150px;
-}
-
-#fourth-page-header {
-    text-align: center;
-}
-
-#comment-holder-box {
+form {
+    margin-left: 145px;
     display: flex;
-    flex-wrap: wrap;
-    padding-top: 50px;
 }
 
-.comment-box {
+#popup-container {
+    /* display: none; */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    background-image: url(../images/blockbackgroung.png);
+}
+
+#popup {
+    width: 60%;
+    height: 60%;
+    background-color: #f1f0ec;
+    padding: 20px;
+    margin: 7% auto;
+    border-radius: 30px;
+}
+
+#close-popup {
+    background-image: url(../images/cross.png);
+    background-repeat: none;
+    background-size: cover;
+    background-color:#f1f0ec;
+    border: none;
+    width: 20px;
+    height: 20px;
+    position: fixed;
+    left: 78%;
+    top: 19%;
+}
+
+#form-wrapper {
+    /* margin: 0 auto;
+    margin-left: 0px; */
+    float: left;
+}
+
+form .comment-box {
     width: 230px;
-    padding-left: 45px;
-    padding-right: 45px;
-    margin: 0 auto;
+    padding: 20px;
+    /* padding-left: 0px;
+    padding-right: 0px; */
+    margin: 0;
+    margin-right: 20px;
     padding-bottom: 50px;
 }
 
-.comment-img {
-    display: inline-block;
-    overflow: hidden;
-    width: 100%;
-    padding-bottom: 100%;
-    height: 0;
-    position: relative;
-    padding-left: 10px;
-    padding-top: 10px;
-}
-
-.comment-img img {
+form .comment-img img {
     width:90%;
     height:90%;
     position: absolute;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: 0 0 7px rgba(0,0,0,0.5);
-}
-
-.comment-text-box {
-    padding: 10px;
-    text-align: center;
-    /* background-color: gray; */
-}
-
-#fifth-page {
-    padding-top: 100px;
-}
-
-#user-comment-header {
-    text-align: center;
-}
-
-form {
-    margin: 0 auto;
-    text-align: center;
 }
 
 #user-name {
@@ -220,82 +344,34 @@ input {
     padding: 5px;
 }
 
-#footer {
-    margin-top: 100px;
-    box-shadow: 0 0 7px rgba(0,0,0,0.5);
-    display: flex;
-    align-items: end;
+#user-comment-form-submit {
+    width: 85px;
+    position: relative;
+    left: 138.9px
 }
 
-#footer .logo {
-    margin-bottom: 20px;
-    margin-left: 1px;
+#user-file-wrapper {
+    margin: 0 auto;
 }
 
-#media-box-holder {
+#user-file {
+    opacity: 0;
+    visibility: hidden;
     position: absolute;
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    height: 100px;
-    padding-bottom: 20px;
 }
 
-#media-box {
-    margin: 0 auto;
-    display: flex;
-    text-align: center;
-    flex-wrap: wrap;
-    height: 100px;
-    padding-bottom: 20px;
-    align-items:end;
+.user-file-button {
+    border: 20px;
 }
 
-.media {
-    width: 40px;
-    height: 40px;
-    margin-left: 10px;
-    margin-bottom: 0;
-    z-index: 20;
+.user-file-button-img-wrapper {
+    width: 30px;
 }
 
-.media img {
-    width: 40px;
+.user-file-button-img-wrapper img {
+    width: 30px;
 }
 
-.big-box-1 {
-    position: absolute;
-    width: 100%;
-    padding-bottom: 70px;
+.user-file-button-img-text {
+
 }
-
-.big-box-2 {
-    width: 800px;
-    margin: 0 auto;
-    display: flex;
-    text-align: center;
-}
-
-
-#footer-end-text {
-    margin: 0 auto;
-    max-width: 360px;
-    z-index: 20;
-}
-
-#footer-email {
-    float: right;
-    margin-right: 50px;
-    margin-bottom: 50px;
-}
-
-#footer-email a {
-    color: black;
-}
-
-#footer-tel-number {
-    float: right;
-    margin-right: 50px;
-    margin-bottom: 20px;
-}
-
