@@ -17,41 +17,48 @@
         <link rel="stylesheet" type="text/css" href="{% static 'vendor/styles/portfolioStyles.css' %}">
 </head>
 <body>
-<header class="py-1 border-bottom row justify-content-around sticky-top text-center">
-            <div class = "row align-items-center">
-                <div class="col" style="min-height: 60px">
-                    <a href="{% url 'main' %}"><button class="btn p-10 h-0 w-0 textB1" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"
-                        style="min-height: 60px" onclick>
-                        <p class=" pixels">Главная</p>
-                    </button></a>
+ <header id="header" class="py-1 sticky-top container-fluid">
+            <div class = "d-flex justify-content-between p-2">
+                <div class="col-2">
+                    <div class="" style="margin-right: auto">
+                        <a href="index.html" class="">
+                            <img src="static/vendor/images/logo-1.png" class="logo" style="max-width: 178px;">
+                        </a>
+                    </div>
                 </div>
-                <div class="col" style="min-height: 60px">
-                            <a href="TestFile.html"><button class="btn p-10 h-0 w-0 textB1" type="button" data-bs-toggle="collapse"
-                                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"
-                                style="min-height: 60px">
-                                <p class=" pixels">Файлы</p>
-                            </button></a>
-                        </div>
-                        <div class="col">
-                            <a href="index.html" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
-                                <img src="{% static 'vendor/images/logo-1.png' %}" class="logo" style="height: 50px; min-width: 178px;">
-                            </a>
-                        </div>
-                        <div class="col" style="min-height: 60px">
-                            <a href="code_example.html"><button class="btn p-10 h-0 w-0 textB1" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"
-                                    style="min-height: 60px">
-                                <p class=" pixels">Образцы</p>
-                            </button></a>
-                        </div>
-                        <div class="col" style="min-height: 60px">
-                            <a href="index.html"><button class="btn p-10 h-0 w-0 textB1" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample"
-                                    style="min-height: 60px">
-                                <p class=" pixels">Ide</p>
-                            </button></a>
-                        </div>
+                <div class="col-1"></div>
+                <div id="header-inscription" class="col-4 d-flex">
+                    <a href="#" class="btn shadow-none p-2 h-0 w-0 textB1">
+                        <p class="mb-0 resizeble-text"><h3>Свадьбы</h3></p>
+                    </a>
+                </div>
+                <div class="col-5 d-flex justify-content-end">
+                    <div class="" style="min-height: 60px">
+                        <a href="#" class="btn shadow-none p-10 h-0 w-0 textB1">
+                            <p class=" mb-0" style="min-width: 112px;">Мои работы</p>
+                        </a>
+                    </div>
+                    <div class="" style="min-height: 60px">
+                        <a href="#" class="btn shadow-none p-10 h-0 w-0 textB1">
+                            <p class=" mb-0" style="min-width: 112px;">Видео</p>
+                        </a>
+                    </div>
+                    <div class="" style="min-height: 60px">
+                        <a href="TestFile.html" class="btn shadow-none p-10 h-0 w-0 textB1">
+                            <p class="mb-0 text-center">Отзывы</p>
+                        </a>
+                    </div>
+                    <div class="" style="min-height: 60px">
+                        <a href="code_example.html" class="btn shadow-none p-10 h-0 w-0 textB1">
+                            <p class="mb-0 text-center" style="min-width: 85px;">Обо мне</p>
+                        </a>
+                    </div>
+                    <div class="" style="min-height: 60px">
+                        <a href="index.html" class="btn shadow-none p-10 h-0 w-0 textB1">
+                            <p class="mb-0 text-center">Контакты</p>
+                       </a>
+                    </div>
+                </div>
             </div>
         </header>
 
@@ -59,40 +66,27 @@
 
 {% endblock %}
         <div class="myself-container"></div>
-            <div class="row justify-content-around myself-footer border-top" >
-                <div class="col-3">
-                    <div id="footer-email">
+        <footer class="d-flex justify-content-center container-lg">
+            <div class="row justify-content-around myself-footer border-top col-10" >
+                <div class="col-4">
+                        <div class="media">
+                            <a href="https://www.instagram.com/katarina_losik/?igshid=MzRlODBiNWFlZA%3D%3D" target=»_blank» class="d-flex text-decoration-none justify-content-end">
+                                <img src="static/vendor/images/footer-instagram-logo.png">
+                                <p class="pushUp">instagram</p>
+                            </a>
+                        </div>
+                </div>
+                <div class="col-4">
+                    <div id="footer-email" class="text-center pushUp">
                         paradis1984@mail.ru
                     </div>
                 </div>
-                <div class="col-3 ">
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                <div class="row justify-content-center">
-                <div class="media">
-                    <a href="https://www.instagram.com/katarina_losik/?igshid=MzRlODBiNWFlZA%3D%3D" target=»_blank»>
-                        <img src="{% static 'vendor/images/footer-instagram-logo.png' %}">
-                    </a>
-                </div>
-                    <div class="media">
-                    <a href="https://www.instagram.com/katarina_losik/?igshid=MzRlODBiNWFlZA%3D%3D" target=»_blank»>
-                        <img src="{% static 'vendor/images/footer-instagram-logo.png' %}">
-                    </a>
-                </div>
-                <div class="media">
-                    <a href="https://www.instagram.com/katarina_losik/?igshid=MzRlODBiNWFlZA%3D%3D" target=»_blank»>
-                        <img src="{% static 'vendor/images/footer-instagram-logo.png' %}">
-                    </a>
-                </div>
-            </div>
-            </div>
-
-            <div  class="col-3">
-                <div class="big-block-2">
-                    <div id="footer-tel-number">
+                <div  class="col-4">
+                    <div id="footer-tel-number" class="pushUp">
                         +375-29-633-94-88
                     </div>
                 </div>
             </div>
-        </div>
+        </footer>
 </body>
 </html>
