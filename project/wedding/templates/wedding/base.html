@@ -21,8 +21,8 @@
             <div class = "d-flex justify-content-between p-2">
                 <div class="col-2">
                     <div class="" style="margin-right: auto">
-                        <a href="index.html" class="">
-                            <img src="static/vendor/images/logo-1.png" class="logo" style="max-width: 178px;">
+                        <a href="{% url 'main' %}" class="">
+                            <img src="{% static 'vendor/images/logo-1.png' %}" class="logo" style="max-width: 178px;">
                         </a>
                     </div>
                 </div>
@@ -44,17 +44,17 @@
                         </a>
                     </div>
                     <div class="" style="min-height: 60px">
-                        <a href="TestFile.html" class="btn shadow-none p-10 h-0 w-0 textB1">
+                        <a href="#" class="btn shadow-none p-10 h-0 w-0 textB1">
                             <p class="mb-0 text-center">Отзывы</p>
                         </a>
                     </div>
                     <div class="" style="min-height: 60px">
-                        <a href="code_example.html" class="btn shadow-none p-10 h-0 w-0 textB1">
+                        <a href="#" class="btn shadow-none p-10 h-0 w-0 textB1">
                             <p class="mb-0 text-center" style="min-width: 85px;">Обо мне</p>
                         </a>
                     </div>
                     <div class="" style="min-height: 60px">
-                        <a href="index.html" class="btn shadow-none p-10 h-0 w-0 textB1">
+                        <a href="{% url 'main' %}" class="btn shadow-none p-10 h-0 w-0 textB1">
                             <p class="mb-0 text-center">Контакты</p>
                        </a>
                     </div>
@@ -71,7 +71,7 @@
                 <div class="col-4">
                         <div class="media">
                             <a href="https://www.instagram.com/katarina_losik/?igshid=MzRlODBiNWFlZA%3D%3D" target=»_blank» class="d-flex text-decoration-none justify-content-end">
-                                <img src="static/vendor/images/footer-instagram-logo.png">
+                                <img src="{% static 'vendor/images/footer-instagram-logo.png'%}">
                                 <p class="pushUp">instagram</p>
                             </a>
                         </div>

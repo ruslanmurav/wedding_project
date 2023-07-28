@@ -77,6 +77,7 @@ class PortfolioView(TitleMixin, ListView):
     paginate_by = 2
 
     def get_queryset(self):
+
         return super().get_queryset().prefetch_related(
             Prefetch('photo_set', queryset=Photo.objects.all()[:1], to_attr='photos')
         )

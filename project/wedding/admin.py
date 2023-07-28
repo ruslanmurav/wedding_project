@@ -97,7 +97,7 @@ class VideoAdmin(admin.ModelAdmin):
 class TextAdmin(admin.ModelAdmin):
     list_display = ('file_name',)
     fields = ('file_name', 'file', 'mark')
-    readonly_fields = ('file_name', 'mark')
+    # readonly_fields = ('file_name', 'mark')
 
     def get_queryset(self, request):
         queryset = super().get_queryset(request)
